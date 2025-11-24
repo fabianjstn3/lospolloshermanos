@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Pollos Hermanos</title>
+  <link rel="icon" type="image/png" href="images/losp.png">
+  <!-- original external CSS (kept for compatibility) -->
+  <link rel="stylesheet" href="styles.css">
+  
+
+</head>
+<body>
+     <nav>
+  <a href="#hero">
+    <img src="images/lph.png" class="logo" alt="Logo">
+  </a>
+  <ul>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#bio">About</a></li>
+    <li>
+      <a href="#train">
+        <span class="full-text">Training Videos</span>
+        <span class="short-text">Training</span>
+      </a>
+    </li>
+    <li>
+      <a href="#job">
+        <span class="full-text">Job Listings</span>
+        <span class="short-text">Jobs</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <!-- HERO SECTION -->
+  <div class="hero" id="hero">  
+    <div class="content">
+      <h1>Los Pollos <br> Hermanos</h1>
+      <a href="#menu">EXPLORE</a>
+    </div>
+  </div>
+
+  <!-- RESTAURANT MENU SECTION -->
+  <section id="menu" class="section">
+    <h1><br>Menu</h1>
+    <p>Here are Gustavo Fring's picks</p>
+
+    <div class="menu-grid">
+      <!-- keep original image references but wrapped to show metadata -->
+      <div class="menu-item-card"><img src="images/polloloco.png" alt="work1"><span class="meta">Pollos Burritos</span></div>
+      <div class="menu-item-card"><img src="images/polloloco1.jpg" alt="work2"><span class="meta">The Full Measure</span></div>
+      <div class="menu-item-card"><img src="images/pollolocoo.jpg" alt="work3"><span class="meta">Pollo Loco</span></div>
+      <div class="menu-item-card"><img src="images/spicecurls.jpg" alt="work4"><span class="meta">Spice Curls</span></div>
+      <div class="menu-item-card"><img src="images/fam.jpeg" alt="work5"><span class="meta">Famiglia</span></div>
+      <div class="menu-item-card"><img src="images/bev.jpeg" alt="work6"><span class="meta">Bebida</span></div>
+      <div class="menu-item-card"><img src="images/pollotorta.jpg" alt="work7"><span class="meta">Pollo Torta</span></div>
+      <div class="menu-item-card"><img src="images/tenders.jpg" alt="work8"><span class="meta">Pollos Tenders</span></div>
+      <div class="menu-item-card"><img src="images/sides.jpg" alt="work9"><span class="meta">Slaw Goodman</span></div>
+      <div class="menu-item-card"><img src="images/wings.jpg" alt="work10"><span class="meta">Wingicita</span></div>
+      <div class="menu-item-card"><img src="images/elheisenberg.avif" alt="work11"><span class="meta">El Heisenberg</span></div>
+      <div class="menu-item-card"><img src="images/bombshell.jpg" alt="work12"><span class="meta">Bombshell</span></div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION (HOMAGE, CULTURE & VALUES) -->
+  <section id="bio" class="section">
+    <h1>Welcome!</h1>
+    <p>Welcome to Los Pollos Hermanos — where family, flavor, and flawless service come together.<br> 
+    Our chicken is prepared with the utmost care, seasoned to perfection, and served with a smile that’s as warm as our kitchen. <br> 
+    Whether you’re here for a quick meal or a moment of comfort, you’re part of the family. <br> 
+    Taste the tradition. Experience the excellence. Only at Los Pollos Hermanos.</p>
+
+    <div class="homage">
+      <div class="bio-image">
+     <img src="images/gusfring.png" alt="Gus Fring" class="gus-floating">
+    </div>
+
+      <div class="gus-quote scroll-frame" role="region" aria-label="Gus Fring quote">
+  <div class="scroll-quote">
+    "I am the calm in the storm, and I respect discipline — in my restaurants, my people, and my work. 
+    We do things the right way here."
+  </div>
+  <div class="quote-author">— Gustavo 'Gus' Fring</div>
+
+  <div class="homage-note">
+    <h3>Homage: Philosophy & Values</h3>
+    <p>
+      Los Pollos Hermanos honors service, discipline, and community.  
+      This page is a fictional proposal inspired by the series — it celebrates how attention to process 
+      and excellence create trust with customers.
+    </p>
+  </div>
+</section>
+
+  <!-- TRAINING SECTION -->
+  <section id="train" class="section">
+  <h1>Train with Us</h1>
+
+  <div class="training-video-container">
+    <!-- Replace the src with your own video link -->
+    <iframe
+      src="https://www.youtube.com/embed/B9RgougnhiE"
+      title="Los Pollos Hermanos Training Video"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <p class="training-desc">
+    Learn the Los Pollos Hermanos way — where excellence, precision, and hospitality come together.
+  </p>
+
+  <a
+    href="https://www.youtube.com/watch?v=B9RgougnhiE&list=PL4XYugONL7lZovnsdYCwehreahGVRkrfc&index=10"
+    target="_blank"
+    class="playlist-btn"
+  >
+    View Full Training Playlist
+  </a>
+</section>
+
+  <!-- JOB LISTINGS SECTION -->
+  <section id="job" class="section">
+    <h1>Be With Gus</h1>
+    <p>Join our team — roles below are inspired by the show's operations. Click Apply to submit. (This demo is frontend-only; submissions are simulated.)</p>
+
+    <div class="jobs-grid" id="jobs-grid">
+      <!-- Jobs will be injected by JS so you can easily modify them without touching HTML -->
+    </div>
+
+  <footer>
+    <a href="https://www.facebook.com/eatlospolloshermanos/">Facebook</a> | 
+    <a href="https://www.instagram.com/eatlospolloshermanos/">Instagram</a>
+  </footer>
+
+  <!-- Lightbox for menu images -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <img src="" alt="Preview" id="lightbox-img">
+  </div>
+
+  <!-- Apply Modal -->
+  <div class="modal" id="apply-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="panel" role="document">
+      <h3 id="modal-job-title">Apply</h3>
+      <form id="apply-form">
+        <label for="app-name">Full name</label>
+        <input id="app-name" required>
+        <label for="app-email">Email</label>
+        <input id="app-email" type="email" required>
+        <label for="app-cv">Short pitch (or paste link to CV)</label>
+        <textarea id="app-cv" rows="4" required></textarea>
+        <div style="display:flex; gap:12px; margin-top:12px; justify-content:flex-end;">
+          <button type="button" id="apply-cancel">Cancel</button>
+          <button type="submit" id="apply-submit">Send Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ====== Lightbox ======
+    document.querySelectorAll('.menu-item-card img').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        const lb = document.getElementById('lightbox');
+        const lbimg = document.getElementById('lightbox-img');
+        lbimg.src = img.src;
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden','false');
+      });
+    });
+    document.getElementById('lightbox').addEventListener('click', (e)=>{
+      if(e.target.id === 'lightbox' || e.target.id === 'lightbox-img'){
+        e.currentTarget.classList.remove('open');
+        e.currentTarget.setAttribute('aria-hidden','true');
+      }
+    });
+
+    // ====== Jobs data & rendering ======
+    const jobs = [
+  {
+    id: 'asst-manager',
+    title: 'Assistant Manager',
+    location: 'Downtown Branch',
+    status: 'open',
+    description: 'Oversee daily operations, ensure quality standards, coordinate shifts.',
+    responsibilities: ['Manage staff schedules', 'Quality control', 'Inventory oversight'],
+    skills: ['Leadership', 'Customer service', 'Inventory basics']
+  },
+  {
+    id: 'line-cook',
+    title: 'Line Cook',
+    location: 'Main Kitchen',
+    status: 'filled',
+    description: 'Prepare menu items according to standard recipes. Maintain cleanliness.',
+    responsibilities: ['Cook menu items', 'Maintain temps', 'Prep ingredients'],
+    skills: ['Speed & accuracy', 'Food safety', 'Teamwork']
+  },
+  {
+    id: 'delivery-driver',
+    title: 'Delivery Driver',
+    location: 'Citywide',
+    status: 'open',
+    description: 'Deliver orders safely and on time, represent the brand professionally.',
+    responsibilities: ['Timely deliveries', 'Customer interaction', 'Vehicle upkeep'],
+    skills: ['Navigation', 'Punctuality', 'Communication']
+  },
+  {
+    id: 'front-staff',
+    title: 'Front-of-House Staff',
+    location: 'All Branches',
+    status: 'open',
+    description: 'Greet customers, take orders, and keep service fast and friendly.',
+    responsibilities: ['Order taking', 'Cash handling', 'Customer care'],
+    skills: ['Friendly attitude', 'Cash handling', 'Basic POS']
+  }
+];
+
+const jobsGrid = document.getElementById('jobs-grid');
+
+// Store filled jobs in localStorage (so it persists)
+function getFilledJobs() {
+  return JSON.parse(localStorage.getItem('filledPositions') || '{}');
+}
+
+function saveFilledJob(jobId) {
+  const filled = getFilledJobs();
+  filled[jobId] = true;
+  localStorage.setItem('filledPositions', JSON.stringify(filled));
+}
+
+// Render all job cards dynamically
+function renderJobs() {
+  jobsGrid.innerHTML = ''; // clear previous
+  const filled = getFilledJobs();
+
+  jobs.forEach(job => {
+    const isFilled = job.status === 'filled' || filled[job.id];
+
+    const card = document.createElement('div');
+    card.className = 'job-card';
+
+    card.innerHTML = `
+      <h3>${job.title}</h3>
+      <div class="chip">${job.location}</div>
+      <p style="margin-top:8px;">${job.description}</p>
+
+      <div style="margin-top:10px">
+        <strong>Responsibilities:</strong>
+        <ul>${job.responsibilities.map(r => `<li>${r}</li>`).join('')}</ul>
+      </div>
+
+      <div><strong>Required skills:</strong> ${job.skills.join(', ')}</div>
+
+      <div class="job-actions">
+        ${isFilled
+          ? `<button class="cta secondary" disabled>Position Filled</button>`
+          : `<button class="cta" data-job="${job.id}">Apply Now</button>`
+        }
+        <button class="cta secondary" data-details="${job.id}">Details</button>
+      </div>
+    `;
+
+    jobsGrid.appendChild(card);
+  });
+
+  attachJobEventListeners();
+}
+
+// Attach event listeners for Apply & Details buttons
+function attachJobEventListeners() {
+  document.querySelectorAll('[data-job]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      openApplyModal(e.target.getAttribute('data-job'));
+    });
+  });
+
+  document.querySelectorAll('[data-details]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const jobId = e.target.getAttribute('data-details');
+      toggleDetails(jobId, e.target.closest('.job-card'));
+    });
+  });
+}
+
+// Toggle job details (expand/collapse)
+function toggleDetails(jobId, card) {
+  const job = jobs.find(j => j.id === jobId);
+  const existing = card.querySelector('.more');
+  if (existing) {
+    existing.remove();
+  } else {
+    const div = document.createElement('div');
+    div.className = 'more';
+    div.style.marginTop = '10px';
+    div.innerHTML = `
+      <em>Full Description:</em> ${job.description}<br>
+      <strong>Skills:</strong> ${job.skills.join(', ')}
+    `;
+    card.appendChild(div);
+  }
+}
+
+// ====== APPLY MODAL ======
+const applyModal = document.getElementById('apply-modal');
+const modalTitle = document.getElementById('modal-job-title');
+let activeJobId = null;
+
+function openApplyModal(jobId) {
+  const job = jobs.find(j => j.id === jobId);
+  const card = [...document.querySelectorAll('.job-card')].find(c =>
+    c.querySelector(`[data-job="${jobId}"]`)
+  );
+
+  // Check if a form is already inside this card
+  const existingForm = card.querySelector('.inline-apply');
+  if (existingForm) {
+    // If form exists, remove it (collapse it)
+    existingForm.remove();
+    return;
+  }
+
+  // Remove any other open inline form
+  document.querySelectorAll('.inline-apply').forEach(f => f.remove());
+
+  // Create inline form
+  const form = document.createElement('form');
+  form.className = 'inline-apply';
+  form.innerHTML = `
+    <h4>Apply for: ${job.title}</h4>
+    <label>Full Name</label>
+    <input type="text" required>
+    <label>Email</label>
+    <input type="email" required>
+    <label>Short pitch or CV link</label>
+    <textarea rows="3" required></textarea>
+    <div class="inline-actions">
+      <button type="submit" class="cta">Send</button>
+      <button type="button" class="cta secondary cancel-inline">Cancel</button>
+    </div>
+  `;
+
+  // Append below the job card
+  card.appendChild(form);
+
+  // Handle submission
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert(`Application sent for ${job.title}!`);
+    form.remove();
+  });
+
+  // Handle cancel
+  form.querySelector('.cancel-inline').addEventListener('click', () => {
+    form.remove();
+  });
+}
+
+
+document.getElementById('apply-cancel').addEventListener('click', () => {
+  applyModal.classList.remove('open');
+  applyModal.setAttribute('aria-hidden', 'true');
+});
+
+// Handle job application submission
+document.getElementById('apply-form').addEventListener('submit', e => {
+  e.preventDefault();
+  if (activeJobId) saveFilledJob(activeJobId);
+
+  applyModal.classList.remove('open');
+  applyModal.setAttribute('aria-hidden', 'true');
+  renderJobs();
+  alert('Application sent! (Demo only — no backend processing)');
+});
+
+// ====== INIT ======
+if (!localStorage.getItem('initSample')) {
+  const sample = { 'line-cook': true }; // pre-fill one position for demo
+  localStorage.setItem('filledPositions', JSON.stringify(sample));
+  localStorage.setItem('initSample', '1');
+}
+
+renderJobs();
+  </script>
+
+</body>
+</html>

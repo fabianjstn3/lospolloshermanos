@@ -1,0 +1,640 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  filter: brightness(0.95) contrast(1.1); 
+}
+
+
+  /* custom font */
+  @font-face {
+    font-family: 'Graffiti';
+    src: url('fonts/burrito.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* animations */
+
+  .content h1 {
+    font-family: 'Graffiti', sans-serif;
+    font-size: 120px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 15px;
+    transition: 0.5s;
+  }
+  .content h1:hover {
+    -webkit-text-stroke: 2px #e5ff23;
+    color: transparent;
+  }
+
+  .content a {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 50px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease; /* transition */
+  }
+  .content a:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+  }
+  nav .logo {
+    width: 160px;
+    filter: drop-shadow(0 6px 12px rgba(255, 255, 255, 0.7));
+  }
+  nav ul {
+    display: flex;
+  }
+  nav ul li {
+    list-style: none;
+    margin-left: 40px;
+  }
+  nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease; /* transition */
+  }
+  nav ul li a:hover {
+    color: #f0c040;
+    transform: translateY(-3px); /* transform */
+  }
+
+
+  .section {
+    padding: 100px 10%;
+    text-align: center;
+    background: #f5f5f5;
+  }
+  .section:nth-child(even) {
+    background: #e0e0e0;
+  }
+  .section h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .section h1::after { /* LAB5 pseudo-element */
+    content: " ★";
+    color: gold;
+    font-size: 1.2em;
+    margin-left: 8px;
+  }
+  .section p, .section ul, .section form {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+  }
+  .menu-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* transition */
+    filter: grayscale(20%) brightness(1.1); /* filter */
+    position: relative;
+  }
+  .menu-grid img:hover {
+    transform: scale(1.08) rotate(2deg); 
+    filter: grayscale(0%) brightness(1.2); 
+  }
+  .menu-grid img:hover::before { /* LAB5 combined effect */
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.25);
+    filter: blur(2px);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  #bio details summary {
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  #bio details ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  #train ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 18px;
+  }
+
+  form button {
+    padding: 12px 40px;
+    border: 2px solid #111;
+    border-radius: 50px;
+    background: #111;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+  }
+  form button:hover {
+    background: #f0c040;
+    color: #000;
+    border-color: #f0c040;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: #111;
+    color: #fff;
+    position: relative;
+  }
+  footer::before { /*pseudo-element */
+    content: "© 2025 Los Pollos Hermanos LLC | ";
+    color: #ccc;
+  }
+  footer a {
+    color: #f0c040;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  footer a:hover {
+    text-decoration: underline;
+    transform: scale(1.05); /* transform */
+  }
+
+  @media print {
+    nav, footer, video {
+      display: none;
+    }
+    body {
+      font-size: 12pt;
+      color: black;
+      background: none;
+    }
+    .section {
+      background: white !important;
+    }
+  }
+
+
+#hero {
+  background: url('images/los2.jpg') center/cover no-repeat fixed;
+  color: #fff;
+  text-shadow: 1px 3px 6px #ff0000;
+  position: relative;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+#hero * {
+  position: relative;
+  z-index: 1;
+}
+  
+  
+
+  /* MENU SECTION BACKGROUND */
+#menu {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("images/los1.webp") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  padding: 100px 10%;
+}
+
+#menu h1, 
+#menu p {
+  color: #ffffff;
+}
+
+#menu .menu-grid img {
+  border: 3px solid rgba(45, 45, 45, 0.2);
+}
+
+/* === ABOUT SECTION BACKGROUND === */
+#bio {
+  background: url('images/los3.jpg') center/cover no-repeat fixed;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000000;
+  position: relative;
+}
+
+/* Optional translucent overlay for readability */
+#bio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+#bio * {
+  position: relative;
+  z-index: 1;
+}
+
+/* === TRAINING SECTION BACKGROUND === */
+#train {
+  background: url('images/los2.webp') center/cover no-repeat fixed;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  position: relative;
+}
+#train::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+#train * {
+  position: relative;
+  z-index: 1;
+}
+
+/* === JOB LISTINGS SECTION BACKGROUND === */
+#job {
+  background: url('images/job.webp') center/cover no-repeat fixed;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  position: relative;
+}
+#job::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+#job * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+/* === GUS QUOTE & NOTEPAD DESIGN === */
+.gus-quote {
+  max-width: 700px;
+  margin: 60px auto;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.scroll-quote {
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 12px;
+  color: #ffcc00;
+}
+
+.quote-author {
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #ff2121;
+}
+
+/* === NOTEPAD CARD (Homage section) === */
+.homage-note {
+  position: relative;
+  background: #fff8dc; /* light yellow paper */
+  color: #333;
+  padding: 25px 30px;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  line-height: 1.7;
+  transform: rotate(-1deg);
+  border: 1px solid #e0c15a;
+}
+
+/* Add faint lines like a notepad */
+.homage-note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 23px,
+    rgba(255, 0, 0, 0.05) 24px
+  );
+  pointer-events: none;
+}
+
+/* === Pin effect at top === */
+.homage-note::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 30% 30%, #e62e00, #990000);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Title styling */
+.homage-note h3 {
+  font-family: 'Graffiti', sans-serif;
+  color: #ff2626;
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Slight hover wobble for realism */
+.homage-note:hover {
+  transform: rotate(0deg) scale(1.02);
+  transition: all 0.3s ease;
+}
+
+#bio {
+  position: relative; /* create a containing layer for Gus */
+  z-index: 2;
+}
+
+#train {
+  position: relative;
+  z-index: 3; /* sits above Gus */
+  background-color: rgba(255, 255, 255, 0.95); /* optional, for contrast */
+}
+
+.gus-floating {
+  display: block;
+  position: relative;
+  z-index: 10;
+  width: 610px;             /* adjust size as needed */
+  margin: -0px auto 0;    /* pulls image upward; removes bottom gap */
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.4));
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.gus-floating {
+  animation: float 6s ease-in-out infinite;
+}
+/* removes top margin/padding from the next section to make contact */
+#train {
+  margin-top: -150px;        /* pulls training section upward */
+  padding-top: 80px;        /* maintain internal spacing */
+}
+
+
+.training-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  aspect-ratio: 16 / 9; /* keeps the correct video ratio */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.training-video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.training-desc {
+  font-size: 18px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.playlist-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #f0c040;
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.playlist-btn:hover {
+  background: #c90a0a;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+
+
+
+
+
+
+
+/* --- Job Card Notepad Look --- */
+.job-card {
+  background: #fffef8; /* off-white paper tone */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  color: #000000
+}
+
+/* lined notepad pattern */
+.job-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, rgba(200, 200, 200, 0.15) 1px, transparent 25px);
+  background-size: 100% 28px;
+  pointer-events: none;
+}
+
+/* the “pin” */
+.job-card::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #cc0000 0%, #7a0000 90%);
+  border-radius: 50%;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+/* hover effects */
+.job-card:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* small tilt variations for realism */
+.job-card:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+.job-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+.job-card:hover:nth-child(odd),
+.job-card:hover:nth-child(even) {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* text styling */
+.job-card h3 {
+  margin-top: 0;
+  color: var(--lph-deep);
+}
+.job-card .chip {
+  background: var(--lph-gold);
+  color: #111;
+  font-weight: 700;
+}
+
+
+
+
+
+/* Job description text */
+.job-card .description {
+  color: #000000; /* change this to your preferred tone */
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Responsibilities section */
+.job-card ul {
+  color: #000000; /* or var(--lph-deep) for a brand tone */
+  margin-top: 6px;
+  margin-left: 20px;
+  list-style: none;
+}
+
+/* "Required skills" line */
+.job-card strong {
+  color: #a10c0c; /* red accent */
+}
+
+/* Optional: style the "Responsibilities:" and "Required skills:" labels */
+.job-card div > strong {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--lph-deep);
+}
+
+.inline-apply {
+  margin-top: 12px;
+  background: #fffef9;
+  border: 2px dashed #f0c040;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.3s ease;
+}
+
+.inline-apply h4 {
+  margin-bottom: 8px;
+  color: var(--lph-red);
+}
+
+.inline-apply label {
+  display: block;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.inline-apply input,
+.inline-apply textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-top: 4px;
+  padding: 6px;
+}
+
+.inline-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
