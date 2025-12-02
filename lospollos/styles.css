@@ -1,29 +1,21 @@
-/* ----------------------------------------------------------
-   BASE / GLOBAL
----------------------------------------------------------- */
+/* ------------------------------
+   BASE / GLOBAL Color Palette
+------------------------------ */
 :root {
-  --lph-red: #c90a0a; /* brand red */
-  --lph-deep: #6b0b00; /* deep accent */
-  --lph-gold: #f0c040; /* accent gold */
-  --lph-cream: #fff6ea; /* background cream */
+  --lph-red: #c90a0a; 
+  --lph-deep: #6b0b00; 
+  --lph-gold: #f0c040; 
+  --lph-cream: #fff6ea; 
   --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   --glass: rgba(255, 255, 255, 0.06);
   --glass-2: rgba(255, 255, 255, 0.12);
   --radius: 14px;
 }
 
-/* ensure added styles don't conflict with the original; use specific selectors */
 nav {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.03));
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-/* interactive hamburger for small screens */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 18px;
 }
 
 .search-btn {
@@ -269,22 +261,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ----------------------------------------------------------
+/* -------------
    CUSTOM FONT
----------------------------------------------------------- */
+----------------- */
 @font-face {
-  font-family: 'Graffiti';
+  font-family: 'LosPollos';
   src: url('fonts/burrito.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-/* ----------------------------------------------------------
+/* -------------
    HERO SECTION
----------------------------------------------------------- */
+---------------- */
 .hero {
   width: 100%;
-  /* Mobile optimization: Use svh to avoid address bar resizing jumps */
   height: 100svh;
   min-height: 600px;
   display: flex;
@@ -295,13 +286,13 @@ body {
   filter: brightness(0.95) contrast(1.1);
 }
 
-/* FIXED: Explicit background properties to prevent iOS Zoom */
+
 #hero {
   background-image: url('images/los2.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* Crucial for iPhone */
+  background-attachment: scroll; 
   color: #fff;
   position: relative;
 }
@@ -320,7 +311,7 @@ body {
 }
 
 .content h1 {
-  font-family: 'Graffiti', sans-serif;
+  font-family: 'LosPollos', sans-serif;
   font-size: clamp(48px, 10vw, 120px);
   color: #ffffff;
   font-weight: 600;
@@ -353,9 +344,9 @@ body {
   color: #000;
 }
 
-/* ----------------------------------------------------------
-   NAVIGATION + HAMBURGER
----------------------------------------------------------- */
+/* -----------
+   NAVIGATION 
+--------------*/
 nav {
   width: 100%;
   position: fixed;
@@ -398,66 +389,11 @@ nav ul li a .short-text {
   display: none;
 }
 
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  width: 36px;
-  height: 28px;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
-.hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #fff;
-  border-radius: 3px;
-  transition: transform .25s ease, opacity .25s ease;
-}
-
-nav input[type="checkbox"] {
-  display: none;
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 70px;
-  right: -100%;
-  width: 72%;
-  height: calc(100vh - 70px);
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(6px);
-  padding: 40px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  transition: right .35s ease;
-  z-index: 9999;
-}
-
-nav input:checked ~ .mobile-menu {
-  right: 0;
-}
-
-nav input:checked + label .bar1 {
-  transform: rotate(45deg) translateY(9px);
-}
-
-nav input:checked + label .bar2 {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-nav input:checked + label .bar3 {
-  transform: rotate(-45deg) translateY(-9px);
-}
-
-/* ----------------------------------------------------------
+/* -----------------------------------------
    SECTIONS & BACKGROUNDS
    Updated to fix responsiveness/zoom issues
----------------------------------------------------------- */
+-------------------------------------------- */
 .section {
   padding: clamp(40px, 8vw, 100px) clamp(20px, 8vw, 10%);
   text-align: center;
@@ -487,8 +423,9 @@ nav input:checked + label .bar3 {
   font-size: clamp(14px, 1.6vw, 18px);
   line-height: 1.6;
 }
-
-/* MENU SECTION BACKGROUND */
+/* ---------------
+   MENU SECTION
+----------------- */
 #menu {
   position: relative;
   /* Separate properties for better control */
@@ -506,7 +443,9 @@ nav input:checked + label .bar3 {
   color: #fff;
 }
 
-/* BIO SECTION BACKGROUND */
+/* ---------------
+   BIO SECTION
+----------------- */
 #bio {
   background-image: url('images/los3.jpg');
   background-position: center center;
@@ -544,7 +483,9 @@ nav input:checked + label .bar3 {
   color: #ffff55;
 }
 
-/* TRAINING SECTION BACKGROUND */
+/* ---------------
+  TRAINING SECTION
+----------------- */
 #train {
   background-image: url('images/los2.webp');
   background-position: center center;
@@ -569,7 +510,9 @@ nav input:checked + label .bar3 {
   z-index: 1;
 }
 
-/* JOB SECTION BACKGROUND */
+/* ---------------
+    JOB SECTION
+----------------- */
 #job {
   background-image: url('images/job.webp');
   background-position: center center;
@@ -594,7 +537,9 @@ nav input:checked + label .bar3 {
   z-index: 1;
 }
 
-/* --- LOADING OVERLAY STYLES --- */
+/* ---------------
+   LOADING OVERLAY
+----------------- */
 .overlay-hidden {
   display: none;
 }
@@ -633,7 +578,9 @@ nav input:checked + label .bar3 {
   font-size: 16px;
 }
 
-/* The Spinner Animation */
+/* ---------------
+      SPINNER
+----------------- */
 .loader {
   border: 5px solid #f3f3f3;
   border-top: 5px solid #c90a0a; /* Red */
@@ -650,9 +597,9 @@ nav input:checked + label .bar3 {
   100% { transform: rotate(360deg); }
 }
 
-/* ----------------------------------------------------------
+/* -----------
    MENU GRID
----------------------------------------------------------- */
+-------------- */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -693,9 +640,9 @@ nav input:checked + label .bar3 {
   font-weight: 700;
 }
 
-/* ----------------------------------------------------------
+/* ---------------
    CONTENT STYLES
----------------------------------------------------------- */
+----------------- */
 .gus-floating {
   width: clamp(200px, 35vw, 540px);
   border-radius: 50%;
@@ -718,7 +665,9 @@ nav input:checked + label .bar3 {
   max-width: 800px;
 }
 
-/* Training Video */
+/* ---------------
+   TRAINING VID
+----------------- */
 .training-video-container {
   position: relative;
   width: 100%;
@@ -794,7 +743,7 @@ nav input:checked + label .bar3 {
 }
 
 .homage-note h3 {
-  font-family: 'Graffiti', sans-serif;
+  font-family: 'LosPollos', sans-serif;
   color: #ff2626;
   font-size: clamp(24px, 5vw, 36px);
   margin-bottom: 10px;
@@ -948,7 +897,7 @@ footer {
   position: relative;
   border-radius: 12px;
   display: flex;
-  flex-direction: column; /* ⬅️ stack vertically */
+  flex-direction: column; /* stack vertically */
   justify-content: center;
   align-items: center;
   gap: 15px; /* space between copyright and icons */
@@ -968,7 +917,7 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-  transform: scale(1.05); /* transform */
+  transform: scale(1.05);
 }
 
 .social-icons {
@@ -983,18 +932,18 @@ footer a:hover {
 .social-icons svg {
   width: 30px;
   height: 30px;
-  fill: var(--lph-red); /* or any visible color */
+  fill: var(--lph-red); 
   transition: transform 0.3s ease;
 }
 
 .social-icons svg:hover {
   transform: scale(1.2);
-  fill: #f0c040; /* optional hover color */
+  fill: #f0c040;
 }
 
-/* ----------------------------------------------------------
+/* -----------
    RESPONSIVE
----------------------------------------------------------- */
+-------------- */
 @media (max-width: 1200px) {
   nav ul li a {
     font-size: 14px;
@@ -1066,9 +1015,9 @@ footer a:hover {
   }
 }
 
-/* ----------------------------------------------------------
-   NAVBAR SPACING FIX (Replace your existing bottom media queries with this)
----------------------------------------------------------- */
+/* ----------------
+   NAVBAR SPACING
+------------------*/
 
 @media (max-width: 768px) {
   /* TIGHTEN THE NAVIGATION ON TABLETS/MOBILES */
@@ -1090,7 +1039,7 @@ footer a:hover {
 }
 
 @media (max-width: 600px) {
-  /* HIDE FULL TEXT EARLIER (Swap to "Jobs", "Training") */
+  /* Hide full text and show short text for better readability on smaller resolutions */
   nav ul li a .full-text {
     display: none;
   }
@@ -1126,7 +1075,7 @@ footer a:hover {
     gap: 10px;
   }
 
-  /* 2. FORCE 2 COLUMNS FOR JOBS (The Fix) */
+  /* 2. FORCE 2 COLUMNS FOR JOB */
   .jobs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 items per row */
@@ -1225,7 +1174,7 @@ footer a:hover {
 }
 
 /* ----------------------------------------------------------
-   DESKTOP ONLY: Re-enable Fixed Parallax
+   DESKTOP ONLY: Fixed Parallax
    Using strict min-width to avoid applying to phones in landscape
 ---------------------------------------------------------- */
 @media (min-width: 1025px) {
