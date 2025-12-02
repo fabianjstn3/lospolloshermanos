@@ -84,6 +84,10 @@ nav {
   box-shadow: var(--card-shadow);
 }
 
+#train h1{
+  margin-top: 20px;
+}
+
 /*scroll look */
 .scroll-frame {
   background: linear-gradient(180deg, #fdf6e8, #fffaf0);
@@ -520,6 +524,10 @@ nav ul li a .short-text {
   position: relative;
 }
 
+#job h1{
+  margin-top: 30px;
+}
+
 #job::before {
   content: "";
   position: absolute;
@@ -560,6 +568,7 @@ nav ul li a .short-text {
 }
 
 #contact h1 {
+  margin-top: 15px;
   color: #fff; 
 }
 
@@ -865,6 +874,10 @@ nav ul li a .short-text {
   position: relative;
   z-index: 10;
   margin: 40px;
+}
+
+#bio h1 {
+  margin-top: 25px; 
 }
 
 .bio {
