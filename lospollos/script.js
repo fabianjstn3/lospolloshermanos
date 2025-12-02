@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('FAILED...', error);
         loader.style.display = 'none';
         title.innerText = "Connection Failed";
-        title.style.color = "#c90a0a"; // Red for error
+        title.style.color = "#c90a0a";
         msg.innerText = "We couldn't reach the server. Please check your connection or Gmail permissions.";
         okBtn.style.display = 'inline-block';
         okBtn.innerText = "Close";
