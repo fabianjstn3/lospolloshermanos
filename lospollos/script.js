@@ -1,14 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  // --- 1. CONFIGURATION ---
-  // We wrap this in a try-catch so if EmailJS fails to load, the rest of the site still works.
   try {
     emailjs.init("qKsuBnK_Tkfr1NDnL");
   } catch (error) {
     console.error("EmailJS failed to load. The form will not work, but the site will render.", error);
   }
 
-  // --- 2. LIGHTBOX LOGIC ---
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   
@@ -30,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 3. JOB DATA ---
   const jobs = [
     {
       id: 'asst-manager',
@@ -70,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // --- 4. RENDER LOGIC ---
   const jobsGrid = document.getElementById('jobs-grid');
 
   function getFilledJobs() {
@@ -140,8 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 5. APPLICATION FORM LOGIC ---
-  // --- 5. APPLICATION FORM LOGIC (WITH CUSTOM OVERLAY) ---
   function openApplyModal(jobId) {
     const job = jobs.find(j => j.id === jobId);
     const card = [...document.querySelectorAll('.job-card')].find(c =>
@@ -245,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 6. INIT ---
   if (!localStorage.getItem('initSample')) {
     const sample = { 'line-cook': true };
     localStorage.setItem('filledPositions', JSON.stringify(sample));
