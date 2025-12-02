@@ -303,7 +303,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: scroll; /* Crucial for iPhone */
   color: #fff;
-  text-shadow: 1px 3px 6px #ff0000;
   position: relative;
 }
 
@@ -326,6 +325,7 @@ body {
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 15px;
+  text-shadow: 1px 3px 6px #ff0000;
   transition: 0.5s;
 }
 
@@ -344,6 +344,8 @@ body {
   text-decoration: none;
   font-size: clamp(14px, 1.4vw, 20px);
   transition: all 0.3s ease;
+  box-shadow: 1px 3px 6px #ff0000;
+  text-shadow: 1px 3px 6px #ff0000;
 }
 
 .content a:hover {
