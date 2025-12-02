@@ -940,7 +940,7 @@ nav input:checked + label .bar3 {
 footer {
   text-align: center;
   padding: 30px;
-  background: #111;
+  background: transparent;
   color: #fff;
   position: relative;
   border-radius: 12px;
