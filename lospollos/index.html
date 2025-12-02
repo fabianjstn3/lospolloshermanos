@@ -26,21 +26,22 @@
     <img src="images/lph.png" class="logo" alt="Logo">
   </a>
   <ul>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#bio">About</a></li>
-    <li>
-      <a href="#train">
-        <span class="full-text">Training Videos</span>
-        <span class="short-text">Training</span>
-      </a>
-    </li>
-    <li>
-      <a href="#job">
-        <span class="full-text">Job Listings</span>
-        <span class="short-text">Jobs</span>
-      </a>
-    </li>
-  </ul>
+  <li><a href="#menu">Menu</a></li>
+  <li><a href="#bio">About</a></li>
+  <li>
+    <a href="#train">
+      <span class="full-text">Training Videos</span>
+      <span class="short-text">Training</span>
+    </a>
+  </li>
+  <li>
+    <a href="#job">
+      <span class="full-text">Job Listings</span>
+      <span class="short-text">Jobs</span>
+    </a>
+  </li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
 
@@ -139,6 +140,40 @@
     <div class="jobs-grid" id="jobs-grid">
       <!-- Jobs will be injected by JS so you can easily modify them without touching HTML -->
     </div>
+</section>
+
+    <section id="contact" class="section">
+  <h1>Contact Us</h1>
+  <p1>Fill up the form for inquiries. Explore our location.</p1>
+
+  <div class="contact-container">
+    
+    <div class="contact-card">
+      <h3>Send an Inquiry</h3>
+      <form id="contact-form">
+        <label for="con-name">Name</label>
+        <input type="text" id="con-name" required placeholder="Your Name">
+        
+        <label for="con-email">Email</label>
+        <input type="email" id="con-email" required placeholder="email@address.com">
+        
+        <label for="con-message">Message</label>
+        <textarea id="con-message" rows="5" required placeholder="How can we help you?"></textarea>
+        
+        <button type="submit" class="cta" style="margin-top: 15px; width: 100%;">Send Message</button>
+      </form>
+    </div>
+
+    <div class="model-wrapper">
+      <div class="sketchfab-embed-wrapper"> 
+        <iframe title="Los Pollos Hermanos" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1723afb8bc6a4c22a9c548f8694b459b/embed"> </iframe> 
+        <p class="model-credits"> 
+          <a href="https://sketchfab.com/3d-models/los-pollos-hermanos-1723afb8bc6a4c22a9c548f8694b459b?utm_medium=embed&utm_campaign=share-popup&utm_content=1723afb8bc6a4c22a9c548f8694b459b" target="_blank" rel="nofollow"> Los Pollos Hermanos </a> by <a href="https://sketchfab.com/I3D99?utm_medium=embed&utm_campaign=share-popup&utm_content=1723afb8bc6a4c22a9c548f8694b459b" target="_blank" rel="nofollow"> I3D </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=1723afb8bc6a4c22a9c548f8694b459b" target="_blank" rel="nofollow">Sketchfab</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
 
   <footer>
     <div>

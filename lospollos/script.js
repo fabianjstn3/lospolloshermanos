@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderJobs() {
-    if (!jobsGrid) return; // Guard clause in case HTML element is missing
+    if (!jobsGrid) return;
     
     jobsGrid.innerHTML = ''; 
     const filled = getFilledJobs();
@@ -140,12 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
       c.querySelector(`[data-job="${jobId}"]`)
     );
 
-    // 1. Cleanup existing forms
+    //cleanup forms
     const existingForm = card.querySelector('.inline-apply');
     if (existingForm) { existingForm.remove(); return; }
     document.querySelectorAll('.inline-apply').forEach(f => f.remove());
 
-    // 2. Create the form
+    //create form
     const form = document.createElement('form');
     form.className = 'inline-apply';
     form.innerHTML = `
@@ -163,31 +163,29 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     card.appendChild(form);
 
-    // Cancel Handler
+    //cancel
     form.querySelector('.cancel-inline').addEventListener('click', () => form.remove());
 
-    // 3. SUBMIT HANDLER (Updated for Overlay)
+    //submit
     form.addEventListener('submit', e => {
       e.preventDefault();
-
-      // --- GRAB OVERLAY ELEMENTS ---
+      //grab overlay elements
       const overlay = document.getElementById('status-overlay');
       const loader = document.getElementById('overlay-loader');
       const title = document.getElementById('overlay-title');
       const msg = document.getElementById('overlay-message');
       const okBtn = document.getElementById('overlay-ok-btn');
 
-      // --- STATE: LOADING ---
-      overlay.className = 'overlay-visible'; // Show overlay
-      loader.style.display = 'block';        // Show spinner
-      okBtn.style.display = 'none';          // Hide OK button
+      //loading
+      overlay.className = 'overlay-visible'; //show overlay
+      loader.style.display = 'block';        //show spinner
+      okBtn.style.display = 'none';          //hide OK button
       title.innerText = "Sending...";
       msg.innerText = "Please wait while we process your application.";
       
-      // Gather Data
+      //gather data
       const templateParams = {
         job_title: job.title,
-        job_location: job.location,
         from_name: document.getElementById('inp-name').value,
         reply_to: document.getElementById('inp-email').value,
         message: document.getElementById('inp-cv').value
@@ -198,28 +196,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const applicantTemplateID = "template_vjec73q";
       const publicKey = "qKsuBnK_Tkfr1NDnL"; 
 
-      // Send Email
+      //send email
       emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)
       .then(() => {
           return emailjs.send(serviceID, applicantTemplateID, templateParams, publicKey);
       })
       .then(() => {
-        // --- STATE: SUCCESS ---
-        loader.style.display = 'none'; // Stop spinner
+        //success
+        loader.style.display = 'none'; //stop the spinner
         title.innerText = "Application Sent!";
-        title.style.color = "#2e7d32"; // Green for success
+        title.style.color = "#2e7d32"; //green for success
         msg.innerText = `Thank you, ${templateParams.from_name}. We will be in touch shortly.`;
-        okBtn.style.display = 'inline-block'; // Show OK button
+        okBtn.style.display = 'inline-block';
         okBtn.innerText = "OK, Great!";
         
-        // When user clicks OK
+        //when user clicks ok
         okBtn.onclick = () => {
-          overlay.className = 'overlay-hidden'; // Hide overlay
-          form.remove(); // Close the form
+          overlay.className = 'overlay-hidden';
+          form.remove();
         };
       })
       .catch((error) => {
-        // --- STATE: ERROR ---
+        //error
         console.error('FAILED...', error);
         loader.style.display = 'none';
         title.innerText = "Connection Failed";
@@ -228,10 +226,10 @@ document.addEventListener('DOMContentLoaded', () => {
         okBtn.style.display = 'inline-block';
         okBtn.innerText = "Close";
 
-        // When user clicks Close (on error)
+        //when user clicks Close (on error)
         okBtn.onclick = () => {
           overlay.className = 'overlay-hidden';
-          // We do NOT remove the form, so they can try again
+          //we dont remove the form, so they can try again
         };
       });
     });
@@ -244,4 +242,69 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderJobs();
+  
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Get Overlay Elements (Reusing existing overlay)
+      const overlay = document.getElementById('status-overlay');
+      const loader = document.getElementById('overlay-loader');
+      const title = document.getElementById('overlay-title');
+      const msg = document.getElementById('overlay-message');
+      const okBtn = document.getElementById('overlay-ok-btn');
+
+      // SHOW LOADING
+      overlay.className = 'overlay-visible';
+      loader.style.display = 'block';
+      okBtn.style.display = 'none';
+      title.innerText = "Sending...";
+      title.style.color = "#000";
+      msg.innerText = "Please wait while we send your inquiry.";
+
+      // Prepare Data
+      const templateParams = {
+        job_title: "General Inquiry",     
+        from_name: document.getElementById('con-name').value,
+        reply_to: document.getElementById('con-email').value,
+        message: document.getElementById('con-message').value
+      };
+
+      const serviceID = "service_z0tij4p";
+      const companyTemplateID = "template_b57936m";
+      const publicKey = "muMHg00QK9UwyTOLY";
+
+      //sending
+      emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)
+        .then(() => {
+          //success
+          loader.style.display = 'none';
+          title.innerText = "Message Received";
+          title.style.color = "#2e7d32";
+          msg.innerText = `Thank you, ${templateParams.from_name}. We will get back to you shortly.`;
+          okBtn.style.display = 'inline-block';
+          okBtn.innerText = "Return to Site";
+
+          okBtn.onclick = () => {
+            overlay.className = 'overlay-hidden';
+            contactForm.reset();
+          };
+        })
+        .catch((error) => {
+          //error
+          console.error('FAILED...', error);
+          loader.style.display = 'none';
+          title.innerText = "Transmission Error";
+          title.style.color = "#c90a0a";
+          msg.innerText = "We couldn't reach the server. Please try again later.";
+          okBtn.style.display = 'inline-block';
+          okBtn.innerText = "Close";
+
+          okBtn.onclick = () => {
+            overlay.className = 'overlay-hidden';
+          };
+        });
+    });
+  }
 });
