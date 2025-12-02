@@ -441,6 +441,8 @@ nav ul li a .short-text {
 #menu h1,
 #menu p {
   color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* ---------------
