@@ -7,10 +7,20 @@
   <link rel="icon" type="image/png" href="images/losp.png">
   <!-- original external CSS (kept for compatibility) -->
   <link rel="stylesheet" href="styles.css">
-  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 </head>
-<body>
+  <body>
+
+  <div id="status-overlay" class="overlay-hidden">
+    <div class="status-box">
+      <div class="loader" id="overlay-loader"></div>
+      <h3 id="overlay-title">Sending...</h3>
+      <p id="overlay-message">Please wait while we contact Gus Fring.</p>
+      <button id="overlay-ok-btn" class="cta" style="display:none; margin-top:15px;">OK</button>
+    </div>
+  </div>
+  
      <nav>
   <a href="#hero">
     <img src="images/lph.png" class="logo" alt="Logo">
@@ -159,231 +169,6 @@
     </div>
   </div>
 
-  <script>
-    // ====== Lightbox ======
-    document.querySelectorAll('.menu-item-card img').forEach(img => {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', () => {
-        const lb = document.getElementById('lightbox');
-        const lbimg = document.getElementById('lightbox-img');
-        lbimg.src = img.src;
-        lb.classList.add('open');
-        lb.setAttribute('aria-hidden','false');
-      });
-    });
-    document.getElementById('lightbox').addEventListener('click', (e)=>{
-      if(e.target.id === 'lightbox' || e.target.id === 'lightbox-img'){
-        e.currentTarget.classList.remove('open');
-        e.currentTarget.setAttribute('aria-hidden','true');
-      }
-    });
-
-    // ====== Jobs data & rendering ======
-    const jobs = [
-  {
-    id: 'asst-manager',
-    title: 'Assistant Manager',
-    location: 'Downtown Branch',
-    status: 'open',
-    description: 'Oversee daily operations, ensure quality standards, coordinate shifts.',
-    responsibilities: ['Manage staff schedules', 'Quality control', 'Inventory oversight'],
-    skills: ['Leadership', 'Customer service', 'Inventory basics']
-  },
-  {
-    id: 'line-cook',
-    title: 'Line Cook',
-    location: 'Main Kitchen',
-    status: 'filled',
-    description: 'Prepare menu items according to standard recipes. Maintain cleanliness.',
-    responsibilities: ['Cook menu items', 'Maintain temps', 'Prep ingredients'],
-    skills: ['Speed & accuracy', 'Food safety', 'Teamwork']
-  },
-  {
-    id: 'delivery-driver',
-    title: 'Delivery Driver',
-    location: 'Citywide',
-    status: 'open',
-    description: 'Deliver orders safely and on time, represent the brand professionally.',
-    responsibilities: ['Timely deliveries', 'Customer interaction', 'Vehicle upkeep'],
-    skills: ['Navigation', 'Punctuality', 'Communication']
-  },
-  {
-    id: 'front-staff',
-    title: 'Front-of-House Staff',
-    location: 'All Branches',
-    status: 'open',
-    description: 'Greet customers, take orders, and keep service fast and friendly.',
-    responsibilities: ['Order taking', 'Cash handling', 'Customer care'],
-    skills: ['Friendly attitude', 'Cash handling', 'Basic POS']
-  }
-];
-
-const jobsGrid = document.getElementById('jobs-grid');
-
-// Store filled jobs in localStorage (so it persists)
-function getFilledJobs() {
-  return JSON.parse(localStorage.getItem('filledPositions') || '{}');
-}
-
-function saveFilledJob(jobId) {
-  const filled = getFilledJobs();
-  filled[jobId] = true;
-  localStorage.setItem('filledPositions', JSON.stringify(filled));
-}
-
-// Render all job cards dynamically
-function renderJobs() {
-  jobsGrid.innerHTML = ''; // clear previous
-  const filled = getFilledJobs();
-
-  jobs.forEach(job => {
-    const isFilled = job.status === 'filled' || filled[job.id];
-
-    const card = document.createElement('div');
-    card.className = 'job-card';
-
-    card.innerHTML = `
-      <h3>${job.title}</h3>
-      <div class="chip">${job.location}</div>
-      <p style="margin-top:8px;">${job.description}</p>
-
-      <div style="margin-top:10px">
-        <strong>Responsibilities:</strong>
-        <ul>${job.responsibilities.map(r => `<li>${r}</li>`).join('')}</ul>
-      </div>
-
-      <div><strong>Required skills:</strong> ${job.skills.join(', ')}</div>
-
-      <div class="job-actions">
-        ${isFilled
-          ? `<button class="cta secondary" disabled>Position Filled</button>`
-          : `<button class="cta" data-job="${job.id}">Apply Now</button>`
-        }
-        <button class="cta secondary" data-details="${job.id}">Details</button>
-      </div>
-    `;
-
-    jobsGrid.appendChild(card);
-  });
-
-  attachJobEventListeners();
-}
-
-// Attach event listeners for Apply & Details buttons
-function attachJobEventListeners() {
-  document.querySelectorAll('[data-job]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      openApplyModal(e.target.getAttribute('data-job'));
-    });
-  });
-
-  document.querySelectorAll('[data-details]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const jobId = e.target.getAttribute('data-details');
-      toggleDetails(jobId, e.target.closest('.job-card'));
-    });
-  });
-}
-
-// Toggle job details (expand/collapse)
-function toggleDetails(jobId, card) {
-  const job = jobs.find(j => j.id === jobId);
-  const existing = card.querySelector('.more');
-  if (existing) {
-    existing.remove();
-  } else {
-    const div = document.createElement('div');
-    div.className = 'more';
-    div.style.marginTop = '10px';
-    div.innerHTML = `
-      <em>Full Description:</em> ${job.description}<br>
-      <strong>Skills:</strong> ${job.skills.join(', ')}
-    `;
-    card.appendChild(div);
-  }
-}
-
-// ====== APPLY MODAL ======
-const applyModal = document.getElementById('apply-modal');
-const modalTitle = document.getElementById('modal-job-title');
-let activeJobId = null;
-
-function openApplyModal(jobId) {
-  const job = jobs.find(j => j.id === jobId);
-  const card = [...document.querySelectorAll('.job-card')].find(c =>
-    c.querySelector(`[data-job="${jobId}"]`)
-  );
-
-  // Check if a form is already inside this card
-  const existingForm = card.querySelector('.inline-apply');
-  if (existingForm) {
-    // If form exists, remove it (collapse it)
-    existingForm.remove();
-    return;
-  }
-
-  // Remove any other open inline form
-  document.querySelectorAll('.inline-apply').forEach(f => f.remove());
-
-  // Create inline form
-  const form = document.createElement('form');
-  form.className = 'inline-apply';
-  form.innerHTML = `
-    <h4>Apply for: ${job.title}</h4>
-    <label>Full Name</label>
-    <input type="text" required>
-    <label>Email</label>
-    <input type="email" required>
-    <label>Short pitch or CV link</label>
-    <textarea rows="3" required></textarea>
-    <div class="inline-actions">
-      <button type="submit" class="cta">Send</button>
-      <button type="button" class="cta secondary cancel-inline">Cancel</button>
-    </div>
-  `;
-
-  // Append below the job card
-  card.appendChild(form);
-
-  // Handle submission
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    alert(`Application sent for ${job.title}!`);
-    form.remove();
-  });
-
-  // Handle cancel
-  form.querySelector('.cancel-inline').addEventListener('click', () => {
-    form.remove();
-  });
-}
-
-
-document.getElementById('apply-cancel').addEventListener('click', () => {
-  applyModal.classList.remove('open');
-  applyModal.setAttribute('aria-hidden', 'true');
-});
-
-// Handle job application submission
-document.getElementById('apply-form').addEventListener('submit', e => {
-  e.preventDefault();
-  if (activeJobId) saveFilledJob(activeJobId);
-
-  applyModal.classList.remove('open');
-  applyModal.setAttribute('aria-hidden', 'true');
-  renderJobs();
-  alert('Application sent! (Demo only — no backend processing)');
-});
-
-// ====== INIT ======
-if (!localStorage.getItem('initSample')) {
-  const sample = { 'line-cook': true }; // pre-fill one position for demo
-  localStorage.setItem('filledPositions', JSON.stringify(sample));
-  localStorage.setItem('initSample', '1');
-}
-
-renderJobs();
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>
