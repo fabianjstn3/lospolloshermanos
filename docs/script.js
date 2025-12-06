@@ -191,10 +191,10 @@ document.addEventListener('DOMContentLoaded', () => {
         message: document.getElementById('inp-cv').value
       };
 
-      const serviceID = "service_vtq31hu";
-      const companyTemplateID = "template_pt604nt";
-      const applicantTemplateID = "template_vjec73q";
-      const publicKey = "qKsuBnK_Tkfr1NDnL"; 
+      //const serviceID = "service_vtq31hu";
+      //const companyTemplateID = "template_pt604nt";
+      //const applicantTemplateID = "template_vjec73q";
+      //const publicKey = "qKsuBnK_Tkfr1NDnL"; 
 
       //send email
       emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)
@@ -271,9 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
         message: document.getElementById('con-message').value
       };
 
-      const serviceID = "service_z0tij4p";
-      const companyTemplateID = "template_b57936m";
-      const publicKey = "muMHg00QK9UwyTOLY";
+      //const serviceID = "service_z0tij4p";
+      //const companyTemplateID = "template_b57936m";
+      //const publicKey = "muMHg00QK9UwyTOLY";
 
       //sending
       emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)
