@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Main Kitchen',
       status: 'filled',
       description: 'Prepare menu items according to standard recipes. Maintain cleanliness.',
-      responsibilities: ['Cook menu items', 'Maintain temps', 'Prep ingredients', 'Set up station'],
+      responsibilities: ['Cook menu items', 'Maintain temps', 'Prep ingredients'],
       skills: ['Speed & accuracy', 'Food safety', 'Teamwork', 'Culinary techniques', 'Ability to stay calm under pressure']
     },
     {
