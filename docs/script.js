@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
   
   if (lightbox && lightboxImg) {
     document.querySelectorAll('.menu-item-card img').forEach(img => {
@@ -18,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    lightbox.addEventListener('click', (e) => {
-      if (e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('open');
         lightbox.setAttribute('aria-hidden', 'true');
-      }
-    });
+      });
+    }
   }
 
   const jobs = [
@@ -191,10 +192,10 @@ document.addEventListener('DOMContentLoaded', () => {
         message: document.getElementById('inp-cv').value
       };
 
-      //const serviceID = "service_vtq31hu";
-      //const companyTemplateID = "template_pt604nt";
-      //const applicantTemplateID = "template_vjec73q";
-      //const publicKey = "qKsuBnK_Tkfr1NDnL"; 
+      const serviceID = "service_vtq31hu";
+      const companyTemplateID = "template_pt604nt";
+      const applicantTemplateID = "template_vjec73q";
+      const publicKey = "qKsuBnK_Tkfr1NDnL"; 
 
       //send email
       emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)
@@ -248,14 +249,14 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Get Overlay Elements (Reusing existing overlay)
+      //get overlay elements
       const overlay = document.getElementById('status-overlay');
       const loader = document.getElementById('overlay-loader');
       const title = document.getElementById('overlay-title');
       const msg = document.getElementById('overlay-message');
       const okBtn = document.getElementById('overlay-ok-btn');
 
-      // SHOW LOADING
+      //loading
       overlay.className = 'overlay-visible';
       loader.style.display = 'block';
       okBtn.style.display = 'none';
@@ -263,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title.style.color = "#000";
       msg.innerText = "Please wait while we send your inquiry.";
 
-      // Prepare Data
+      //prepare data
       const templateParams = {
         job_title: "General Inquiry",     
         from_name: document.getElementById('con-name').value,
@@ -271,9 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
         message: document.getElementById('con-message').value
       };
 
-      //const serviceID = "service_z0tij4p";
-      //const companyTemplateID = "template_b57936m";
-      //const publicKey = "muMHg00QK9UwyTOLY";
+      const serviceID = "service_z0tij4p";
+      const companyTemplateID = "template_b57936m";
+      const publicKey = "muMHg00QK9UwyTOLY";
 
       //sending
       emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)

@@ -18,34 +18,53 @@ nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-.search-btn {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 8px 12px;
-  border-radius: 10px;
-  color: var(--lph-red);
-  cursor: pointer;
-}
-
 .lightbox {
-  position: fixed;
-  inset: 0;
+  position: fixed !important; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10001 !important; 
+  background: rgba(0, 0, 0, 0.85); 
+  backdrop-filter: blur(5px);     
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .lightbox.open {
-  display: flex;
+  display: flex !important; 
 }
 
 .lightbox img {
   max-width: 90%;
-  max-height: 85%;
-  border-radius: 12px;
-  box-shadow: var(--card-shadow);
+  max-height: 90vh; 
+  object-fit: contain; 
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10002;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--lph-red); 
 }
 
 #bio .homage {
