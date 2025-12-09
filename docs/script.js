@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     emailjs.init("qKsuBnK_Tkfr1NDnL");
   } catch (error) {
-    console.error("EmailJS failed to load. The form will not work, but the site will render.", error);
+    console.error("EmailJS failed to load.", error);
   }
 
   const lightbox = document.getElementById('lightbox');
@@ -25,6 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.setAttribute('aria-hidden', 'true');
       });
     }
+    
+    lightbox.addEventListener('click', (e) => {
+        if(e.target === lightbox) {
+            lightbox.classList.remove('open');
+            lightbox.setAttribute('aria-hidden', 'true');
+        }
+    });
   }
 
   const jobs = [
@@ -109,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function attachJobEventListeners() {
     document.querySelectorAll('.apply-btn').forEach(btn => {
       btn.addEventListener('click', e => {
-        openApplyModal(e.target.getAttribute('data-job'));
+        const jobId = e.target.getAttribute('data-job');
+        openApplyModal(jobId);
       });
     });
 
@@ -135,107 +143,118 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const applyModal = document.getElementById('apply-modal');
+  const applyForm = document.getElementById('apply-form');
+  const applyCancelBtn = document.getElementById('apply-cancel');
+  let currentJobTitle = ""; 
+
   function openApplyModal(jobId) {
     const job = jobs.find(j => j.id === jobId);
-    const card = [...document.querySelectorAll('.job-card')].find(c =>
-      c.querySelector(`[data-job="${jobId}"]`)
-    );
+    if (!job || !applyModal) return;
 
-    //cleanup forms
-    const existingForm = card.querySelector('.inline-apply');
-    if (existingForm) { existingForm.remove(); return; }
-    document.querySelectorAll('.inline-apply').forEach(f => f.remove());
+    //set state
+    currentJobTitle = job.title;
+    
+    //modal ui
+    const modalTitle = document.getElementById('modal-job-title');
+    if(modalTitle) modalTitle.innerText = `Apply for: ${job.title}`;
 
-    //create form
-    const form = document.createElement('form');
-    form.className = 'inline-apply';
-    form.innerHTML = `
-      <h4>Apply for: ${job.title}</h4>
-      <label>Full Name</label>
-      <input type="text" id="inp-name" name="from_name" required placeholder="Full Name">
-      <label>Email</label>
-      <input type="email" id="inp-email" name="reply_to" required placeholder="email@address.com">
-      <label>Short pitch or CV link</label>
-      <textarea id="inp-cv" name="message" rows="3" required placeholder="Why should we hire you?"></textarea>
-      <div class="inline-actions">
-        <button type="submit" class="cta" id="btn-submit">Apply</button>
-        <button type="button" class="cta secondary cancel-inline">Cancel</button>
-      </div>
-    `;
-    card.appendChild(form);
+    //show modal overlay
+    applyModal.classList.add('open');
+    applyModal.setAttribute('aria-hidden', 'false');
+  }
 
-    //cancel
-    form.querySelector('.cancel-inline').addEventListener('click', () => form.remove());
+  function closeApplyModal() {
+    if (applyModal) {
+      applyModal.classList.remove('open');
+      applyModal.setAttribute('aria-hidden', 'true');
+      if(applyForm) applyForm.reset();
+    }
+  }
 
-    //submit
-    form.addEventListener('submit', e => {
+  if (applyCancelBtn) {
+    applyCancelBtn.addEventListener('click', closeApplyModal);
+  }
+
+  if (applyModal) {
+      applyModal.addEventListener('click', (e) => {
+          if (e.target === applyModal) {
+              closeApplyModal();
+          }
+      });
+  }
+
+  //submit
+  if (applyForm) {
+    applyForm.addEventListener('submit', e => {
       e.preventDefault();
-      //grab overlay elements
+
+      //capture data before closing the modal
+      const formData = {
+        job_title: currentJobTitle,
+        from_name: document.getElementById('app-name').value,
+        reply_to: document.getElementById('app-email').value,
+        message: document.getElementById('app-cv').value
+      };
+      
+      //close modal
+      closeApplyModal();
+
+      //loading overlay
       const overlay = document.getElementById('status-overlay');
       const loader = document.getElementById('overlay-loader');
       const title = document.getElementById('overlay-title');
       const msg = document.getElementById('overlay-message');
       const okBtn = document.getElementById('overlay-ok-btn');
 
-      //loading
-      overlay.className = 'overlay-visible'; //show overlay
-      loader.style.display = 'block';        //show spinner
-      okBtn.style.display = 'none';          //hide OK button
+      //overlaying
+      overlay.style.zIndex = "999999"; 
+      overlay.className = 'overlay-visible'; 
+      loader.style.display = 'block';        
+      okBtn.style.display = 'none';          
       title.innerText = "Sending...";
+      title.style.color = "#000";
       msg.innerText = "Please wait while we process your application.";
-      
-      //gather data
-      const templateParams = {
-        job_title: job.title,
-        from_name: document.getElementById('inp-name').value,
-        reply_to: document.getElementById('inp-email').value,
-        message: document.getElementById('inp-cv').value
-      };
 
+      //send
       const serviceID = "service_vtq31hu";
       const companyTemplateID = "template_pt604nt";
       const applicantTemplateID = "template_vjec73q";
       const publicKey = "qKsuBnK_Tkfr1NDnL"; 
 
-      //send email
-      emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)
+      emailjs.send(serviceID, companyTemplateID, formData, publicKey)
       .then(() => {
-          return emailjs.send(serviceID, applicantTemplateID, templateParams, publicKey);
+          return emailjs.send(serviceID, applicantTemplateID, formData, publicKey);
       })
       .then(() => {
-        //success
-        loader.style.display = 'none'; //stop the spinner
+        loader.style.display = 'none'; 
         title.innerText = "Application Sent!";
-        title.style.color = "#2e7d32"; //green for success
-        msg.innerText = `Thank you, ${templateParams.from_name}. We will be in touch shortly.`;
+        title.style.color = "#2e7d32"; 
+        msg.innerText = `Thank you, ${formData.from_name}. We will be in touch shortly.`;
         okBtn.style.display = 'inline-block';
         okBtn.innerText = "OK, Great!";
         
-        //when user clicks ok
         okBtn.onclick = () => {
           overlay.className = 'overlay-hidden';
-          form.remove();
         };
       })
       .catch((error) => {
-        //error
         console.error('FAILED...', error);
         loader.style.display = 'none';
         title.innerText = "Connection Failed";
         title.style.color = "#c90a0a";
-        msg.innerText = "We couldn't reach the server. Please check your connection or Gmail permissions.";
+        msg.innerText = "We couldn't reach the server. Please check your connection.";
         okBtn.style.display = 'inline-block';
         okBtn.innerText = "Close";
 
-        //when user clicks Close (on error)
         okBtn.onclick = () => {
           overlay.className = 'overlay-hidden';
-          //we dont remove the form, so they can try again
         };
       });
     });
   }
 
+  //local storage init
   if (!localStorage.getItem('initSample')) {
     const sample = { 'line-cook': true };
     localStorage.setItem('filledPositions', JSON.stringify(sample));
@@ -244,19 +263,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderJobs();
   
+  //contact form for general inquiries
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      //get overlay elements
       const overlay = document.getElementById('status-overlay');
       const loader = document.getElementById('overlay-loader');
       const title = document.getElementById('overlay-title');
       const msg = document.getElementById('overlay-message');
       const okBtn = document.getElementById('overlay-ok-btn');
 
-      //loading
+      overlay.style.zIndex = "999999"; 
       overlay.className = 'overlay-visible';
       loader.style.display = 'block';
       okBtn.style.display = 'none';
@@ -264,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
       title.style.color = "#000";
       msg.innerText = "Please wait while we send your inquiry.";
 
-      //prepare data
       const templateParams = {
         job_title: "General Inquiry",     
         from_name: document.getElementById('con-name').value,
@@ -276,10 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const companyTemplateID = "template_b57936m";
       const publicKey = "muMHg00QK9UwyTOLY";
 
-      //sending
       emailjs.send(serviceID, companyTemplateID, templateParams, publicKey)
         .then(() => {
-          //success
           loader.style.display = 'none';
           title.innerText = "Message Received";
           title.style.color = "#2e7d32";
@@ -293,7 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
           };
         })
         .catch((error) => {
-          //error
           console.error('FAILED...', error);
           loader.style.display = 'none';
           title.innerText = "Transmission Error";
