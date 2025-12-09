@@ -443,6 +443,7 @@ nav ul li a .short-text {
   font-size: clamp(14px, 1.6vw, 18px);
   line-height: 1.6;
 }
+
 /* ---------------
    MENU SECTION
 ----------------- */
@@ -759,6 +760,14 @@ nav ul li a .short-text {
     justify-content: center;     
     padding: 80px 20px;  
     background-attachment: scroll; 
+  }
+
+  .section p,
+  .section ul,
+  .section form {
+    font-size: clamp(13px, 2vw, 26px); 
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .contact-container {
