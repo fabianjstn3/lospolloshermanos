@@ -1,0 +1,103 @@
+/* -----------
+   NAVIGATION 
+--------------*/
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: clamp(6px, 2vw, 12px) 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+nav .logo {
+  width: clamp(120px, 14vw, 160px);
+  filter: drop-shadow(0 6px 12px rgba(255, 255, 255, 0.7));
+}
+
+nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #f0c040;
+  transform: translateY(-3px);
+}
+
+nav ul li a .short-text {
+  display: none;
+}
+
+/* --------
+   FOOTER
+---------- */
+footer {
+  text-align: center;
+  margin: 40px auto; 
+  padding: 30px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
+  color: #fff;
+  position: relative;
+  border-radius: 12px;
+  width: 100%;          
+  max-width: 1200px;    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+footer::before {
+  content: "© 2025 Los Pollos Hermanos LLC";
+  color: #ccc;
+  display: block;
+}
+
+footer a {
+  color: #f0c040;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons img {
+  width: 20px;
+}
+
+.social-icons svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--lph-gold); 
+  transition: transform 0.3s ease;
+}
+
+.social-icons svg:hover {
+  transform: scale(1.2);
+  fill: var(--lph-cream);
+}

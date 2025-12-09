@@ -1,0 +1,77 @@
+/* ------------------------------
+   BASE / GLOBAL Color Palette
+------------------------------ */
+:root {
+  --lph-red: #c90a0a; 
+  --lph-deep: #6b0b00; 
+  --lph-gold: #f0c040; 
+  --lph-cream: #fff6ea; 
+  --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-2: rgba(255, 255, 255, 0.12);
+  --radius: 14px;
+}
+
+/* -------------
+   RESET & DEFAULTS
+----------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: clamp(14px, 1.2vw, 18px);
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------
+   CUSTOM FONT
+----------------- */
+@font-face {
+  font-family: 'LosPollos';
+  src: url('../fonts/burrito.ttf') format('truetype'); /* Note: '..' if inside css folder */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* -----------------------------------------
+   GLOBAL SECTION STYLES
+-------------------------------------------- */
+.section {
+  padding: clamp(40px, 8vw, 100px) clamp(20px, 8vw, 10%);
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.section:nth-child(even) {
+  background: #e0e0e0;
+}
+
+.section h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section h1::after {
+  content: " ★";
+  color: gold;
+  font-size: 1.2em;
+  margin-left: 8px;
+}
+
+.section p,
+.section ul,
+.section form {
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.6;
+}
