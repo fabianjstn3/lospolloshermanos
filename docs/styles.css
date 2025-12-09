@@ -463,6 +463,7 @@ nav ul li a .short-text {
   color: #fff;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-shadow: 1px 1px 3px #000;
 }
 
 /* ---------------
