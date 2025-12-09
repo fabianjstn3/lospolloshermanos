@@ -624,6 +624,7 @@ nav ul li a .short-text {
   padding-left: 20px; 
   color: #6b0b00; 
   font-family: 'LosPollos', sans-serif;
+  text-shadow: 1px 1px 3px #fff;
   font-size: 28px;
   position: relative;
   z-index: 5;
