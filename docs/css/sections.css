@@ -14,7 +14,7 @@
 }
 
 #hero {
-  background-image: url('../images/los2.jpg'); /* Note: '..' if inside css folder */
+  background-image: url('../images/los2.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

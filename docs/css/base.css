@@ -38,14 +38,14 @@ body {
 ----------------- */
 @font-face {
   font-family: 'LosPollos';
-  src: url('../fonts/burrito.ttf') format('truetype'); /* Note: '..' if inside css folder */
+  src: url('../fonts/burrito.ttf') format('truetype'); 
   font-weight: normal;
   font-style: normal;
 }
 
-/* -----------------------------------------
+/* -------------------------
    GLOBAL SECTION STYLES
--------------------------------------------- */
+--------------------------- */
 .section {
   padding: clamp(40px, 8vw, 100px) clamp(20px, 8vw, 10%);
   text-align: center;

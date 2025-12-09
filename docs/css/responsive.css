@@ -46,9 +46,6 @@
   }
 }
 
-/* --------------------------------
-   MOBILE FULL-SCREEN CONTACT FIX
--------------------------------- */
 @media (max-width: 768px) {
   #contact {
     min-height: 100svh;         
@@ -86,9 +83,6 @@
   }
 }
 
-/* -------------------------------------------------------
-   MOBILE FULL-SCREEN TRAINING FIX
-------------------------------------------------------- */
 @media (max-width: 768px) {
   #train {
     min-height: 100svh;          /*force full viewport height */

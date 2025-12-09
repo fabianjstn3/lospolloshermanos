@@ -471,7 +471,6 @@
   z-index: 1;
 }
 
-/* 3D Model Specifics */
 .sketchfab-embed-wrapper {
   width: 100%;
   flex-grow: 1; 
@@ -549,8 +548,8 @@
 
 .loader {
   border: 5px solid #f3f3f3;
-  border-top: 5px solid #c90a0a; /* Red */
-  border-right: 5px solid #f0c040; /* Yellow */
+  border-top: 5px solid #c90a0a;
+  border-right: 5px solid #f0c040; 
   border-radius: 50%;
   width: 50px;
   height: 50px;
