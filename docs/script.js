@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Main Kitchen',
       status: 'filled',
       description: 'Prepare menu items according to standard recipes. Maintain cleanliness.',
-      responsibilities: ['Cook menu items', 'Maintain temps', 'Prep ingredients'],
-      skills: ['Speed & accuracy', 'Food safety', 'Teamwork']
+      responsibilities: ['Cook menu items', 'Maintain temps', 'Prep ingredients', 'Set up station'],
+      skills: ['Speed & accuracy', 'Food safety', 'Teamwork', 'Culinary techniques', 'Ability to stay calm under pressure']
     },
     {
       id: 'delivery-driver',
@@ -132,17 +132,27 @@ document.addEventListener('DOMContentLoaded', () => {
   function toggleDetails(jobId, card) {
     const job = jobs.find(j => j.id === jobId);
     const existing = card.querySelector('.more');
-    if (existing) {
+  
+  if (existing) {
+    existing.classList.add('closing');
+    
+    existing.addEventListener('animationend', () => {
       existing.remove();
-    } else {
-      const div = document.createElement('div');
-      div.className = 'more';
-      div.style.marginTop = '10px';
-      div.innerHTML = `<em>Full Description:</em> ${job.description}<br><strong>Skills:</strong> ${job.skills.join(', ')}`;
-      card.appendChild(div);
-    }
-  }
+    }, { once: true });
 
+  } else {
+    const div = document.createElement('div');
+    div.className = 'more';
+    div.innerHTML = `
+      <div style="border-top: 1px dashed #ccc; margin-bottom: 8px;"></div>
+      <em>Full Description:</em> ${job.description}<br>
+      <strong>Skills:</strong> ${job.skills.join(', ')}
+    `;
+    
+    const actions = card.querySelector('.job-actions');
+    card.insertBefore(div, actions);
+  }
+}
   const applyModal = document.getElementById('apply-modal');
   const applyForm = document.getElementById('apply-form');
   const applyCancelBtn = document.getElementById('apply-cancel');
