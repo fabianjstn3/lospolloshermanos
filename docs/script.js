@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  //job listings logic
   const jobs = [
     {
       id: 'asst-manager',
@@ -133,26 +134,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const job = jobs.find(j => j.id === jobId);
     const existing = card.querySelector('.more');
   
-  if (existing) {
-    existing.classList.add('closing');
-    
-    existing.addEventListener('animationend', () => {
-      existing.remove();
-    }, { once: true });
+    if (existing) {
+      existing.classList.add('closing');
+      
+      existing.addEventListener('animationend', () => {
+        existing.remove();
+      }, { once: true });
 
-  } else {
-    const div = document.createElement('div');
-    div.className = 'more';
-    div.innerHTML = `
-      <div style="border-top: 1px dashed #ccc; margin-bottom: 8px;"></div>
-      <em>Full Description:</em> ${job.description}<br>
-      <strong>Skills:</strong> ${job.skills.join(', ')}
-    `;
-    
-    const actions = card.querySelector('.job-actions');
-    card.insertBefore(div, actions);
+    } else {
+      const div = document.createElement('div');
+      div.className = 'more';
+      div.innerHTML = `
+        <div style="border-top: 1px dashed #ccc; margin-bottom: 8px;"></div>
+        <em>Full Description:</em> ${job.description}<br>
+        <strong>Skills:</strong> ${job.skills.join(', ')}
+      `;
+      
+      const actions = card.querySelector('.job-actions');
+      card.insertBefore(div, actions);
+    }
   }
-}
+
+  // --- Modal & Application Form ---
   const applyModal = document.getElementById('apply-modal');
   const applyForm = document.getElementById('apply-form');
   const applyCancelBtn = document.getElementById('apply-cancel');
@@ -194,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  //submit
+  //submit application
   if (applyForm) {
     applyForm.addEventListener('submit', e => {
       e.preventDefault();
@@ -273,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderJobs();
   
-  //contact form for general inquiries
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -334,3 +336,93 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+const navOverlay = document.querySelector('.nav-overlay');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+  navOverlay.classList.toggle('active');
+  document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
+});
+
+navOverlay.addEventListener('click', () => {
+  hamburger.classList.remove('active');
+  navMenu.classList.remove('active');
+  navOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+//define bounds (coordinates north-east of LA - south-west of albuquerque)
+const southWest = L.latLng(32.0, -120.0);
+const northEast = L.latLng(37.0, -104.0);
+const mapBounds = L.latLngBounds(southWest, northEast);
+
+//init map with boundary constraints
+const map = L.map('map', {
+  maxBounds: mapBounds,       
+  maxBoundsViscosity: 1.0,    
+  minZoom: 5                  
+}).fitBounds(mapBounds);      
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+const goldIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+const stores = [
+  {
+    name: "Los Pollos Hermanos – Albuquerque",
+    coords: [35.0844, -106.6504],
+    manager: "G. Fring",
+    hours: "10:00 AM – 10:00 PM"
+  },
+  {
+    name: "Los Pollos Hermanos – Los Angeles",
+    coords: [34.0522, -118.2437],
+    manager: "A. Ortega",
+    hours: "9:00 AM – 11:00 PM"
+  }
+];
+
+stores.forEach(store => {
+  const marker = L.marker(store.coords, { icon: goldIcon }).addTo(map);
+
+  marker.bindPopup(`
+      <strong>${store.name}</strong><br>
+      Manager: ${store.manager}<br>
+      Hours: ${store.hours}
+  `);
+
+  marker.on('mouseover', function (e) {
+    this.openPopup();
+  });
+
+  marker.on('mouseout', function (e) {
+    this.closePopup();
+  });
+});
+
+function focusStore(lat, lng) {
+  map.flyTo([lat, lng], 12);
+}

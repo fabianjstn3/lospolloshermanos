@@ -4,14 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Los Pollos Hermanos</title>
-
+  
   <link rel="icon" type="image/png" href="images/losp.png">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/bio.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/jobs.css">
   <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/training.css">
+  <link rel="stylesheet" href="css/maps.css">
   
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 </head>
@@ -25,27 +34,30 @@
     </div>
   </div>
   
-     <nav>
+ <nav>
   <a href="#hero">
-    <img src="images/lph.png" class="logo" alt="Logo">
+  <img src="images/lph.png" alt="Logo" class="logo">
   </a>
+  
+  <!-- Hamburger button -->
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
   <ul>
-  <li><a href="#menu">Menu</a></li>
-  <li><a href="#bio">About</a></li>
-  <li>
-    <a href="#train">
-      <span class="full-text">Training Videos</span>
-      <span class="short-text">Training</span>
-    </a>
-  </li>
-  <li>
-    <a href="#job">
-      <span class="full-text">Job Listings</span>
-      <span class="short-text">Jobs</span>
-    </a>
-  </li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#bio">Bio</a></li>
+    <li><a href="#train">Training</a></li>
+    <li><a href="#job">Jobs</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#stores">Locations</a></li>
+  </ul>
+  
+  <!-- Overlay backdrop -->
+  <div class="nav-overlay"></div>
 </nav>
 
 
@@ -178,6 +190,24 @@
     </div>
 
   </div>
+    </section>
+  <!-- MAP SECTION -->
+
+  <section id="stores" class="section">
+  <h1>Our Locations</h1>
+  <p>Serving excellence across the Southwest.</p>
+
+  <div id="map"></div>
+
+  <div class="store-list">
+    <button class="lph-btn" onclick="focusStore(35.0844, -106.6504)">
+      Albuquerque, NM
+    </button>
+    <button class="lph-btn" onclick="focusStore(34.0522, -118.2437)">
+      Los Angeles, CA
+    </button>
+  </div>
+
 
   <footer>
     <div>
@@ -221,6 +251,7 @@
       </form>
     </div>
   </div>
+</section>
 
 <script src="script.js"></script>
 </body>

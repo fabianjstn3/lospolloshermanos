@@ -1,0 +1,250 @@
+/* ---------------
+   LIGHTBOX
+----------------- */
+.lightbox {
+  position: fixed !important; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10001 !important; 
+  background: rgba(0, 0, 0, 0.85); 
+  backdrop-filter: blur(5px);     
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex !important; 
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh; 
+  object-fit: contain; 
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: popIn 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10002;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--lph-red); 
+}
+
+/* ----------------
+   JOB APPLY MODAL
+------------------ */
+.modal {
+  position: fixed !important; 
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 99999 !important; 
+  background: rgba(0, 0, 0, 0.75); 
+  backdrop-filter: blur(4px);
+  display: none; 
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.modal.open {
+  display: flex !important; 
+  animation: popIn 0.3s ease;
+}
+
+.modal .panel {
+  position: relative;
+  background: var(--lph-cream);
+  max-width: 90%;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: rotate(-1deg); 
+  width: 540px; 
+}
+
+.modal .panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, rgba(200, 200, 200, 0.15) 1px, transparent 25px);
+  background-size: 100% 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.modal .panel::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #cc0000 0%, #7a0000 90%);
+  border-radius: 50%;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-left: 20px; 
+  color: var(--lph-deep); 
+  font-family: 'LosPollos', sans-serif;
+  text-shadow: 1px 1px 3px #fff;
+  font-size: 28px;
+  position: relative;
+  z-index: 5;
+}
+
+.modal form {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal label {
+  color: var(--lph-red);
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.modal input, 
+.modal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  background: var(--lph-cream);
+}
+
+.modal textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.modal div[style*="display:flex"] {
+  margin-top: 20px !important;
+  gap: 15px;
+}
+
+#apply-submit {
+  background: var(--lph-red);
+  color: var(--lph-cream);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  flex: 1;
+}
+
+#apply-submit:hover {
+  background: var(--lph-deep);
+}
+
+#apply-cancel {
+  background: transparent;
+  color: #444;
+  border: 2px solid #ccc;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  flex: 1; 
+}
+
+#apply-cancel:hover {
+  border-color: #999;
+  color: #000;
+}
+
+/* ---------------
+   LOADING OVERLAY
+----------------- */
+.overlay-hidden {
+  display: none;
+}
+
+.overlay-visible {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.status-box {
+  background: var(--lph-cream);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border-top: 6px solid var(--lph-red);
+}
+
+.status-box h3 {
+  color: var(--lph-red);
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+.status-box p {
+  color: #333;
+  font-size: 16px;
+}
+
+/* ---------------
+      SPINNER
+----------------- */
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--lph-red);
+  border-right: 5px solid var(--lph-gold);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px auto;
+}
+
+/* ---------------
+      ANIMATIONS
+----------------- */
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

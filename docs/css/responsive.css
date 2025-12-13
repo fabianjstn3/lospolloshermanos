@@ -1,6 +1,21 @@
 /* -----------
    RESPONSIVE
 -------------- */
+
+/* ----------------------------------------------------------
+   DESKTOP ONLY: Fixed Parallax
+   Using strict min-width to avoid applying to phones in landscape
+---------------------------------------------------------- */
+@media (min-width: 1025px) {
+  #hero,
+  #menu,
+  #bio,
+  #train,
+  #job {
+    background-attachment: fixed;
+  }
+}
+
 @media (max-width: 1200px) {
   nav ul li a {
     font-size: 14px;
@@ -13,13 +28,125 @@
   }
 }
 
+/* ----------------------------------------------------------
+   HAMBURGER MENU STYLES - Tablet and Mobile
+---------------------------------------------------------- */
 @media (max-width: 992px) {
+  /* Hide desktop nav, show hamburger */
   nav ul {
-    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 280px;
+    background: rgba(91, 92, 89, 0.215);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089); 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   }
+
+  nav ul.active {
+    right: 0;
+  }
+
+  nav ul li {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  nav ul.active li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav ul.active li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  nav ul.active li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  nav ul.active li:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  nav ul.active li:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+  nav ul.active li:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+  nav ul.active li:nth-child(6) {
+    transition-delay: 0.35s;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
   .hamburger {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+    position: relative;
   }
+
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: var(--lph-cream);
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .hamburger span {
+    display: block;
+  }
+
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .menu-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
@@ -46,19 +173,42 @@
   }
 }
 
+/* -------------------------------------------------------
+   MOBILE FULL-SCREEN TRAINING FIX
+   Makes the #train section fill the viewport on mobile
+------------------------------------------------------- */
 @media (max-width: 768px) {
+  /* NAVBAR SPACING */
+  nav {
+    padding: 8px 15px;
+  }
+
+  nav .logo {
+    width: 90px;
+  }
+
+  nav ul {
+    width: 250px;
+    gap: 25px;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+  }
+
+  /* MOBILE CONTACT SECTION */
   #contact {
-    min-height: 100svh;         
-    display: flex;               
-    flex-direction: column;      
-    justify-content: center;     
-    padding: 80px 20px;  
-    background-attachment: scroll; 
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 20px;
+    background-attachment: scroll;
   }
 
   .section p,
   .section ul {
-    font-size: clamp(13px, 2vw, 26px); 
+    font-size: clamp(13px, 2vw, 26px);
     margin-left: auto;
     margin-right: auto;
   }
@@ -67,31 +217,30 @@
     margin: 0;
     width: 100%;
     grid-template-columns: 1fr;
-    gap: 30px; 
+    gap: 30px;
   }
 
-  .contact-card, 
+  .contact-card,
   .model-wrapper {
     width: 100%;
-    transform: none !important; 
+    transform: none !important;
     margin-bottom: 0;
-    height: auto; 
+    height: auto;
   }
-  
-  .sketchfab-embed-wrapper iframe {
-    height: 250px; 
-  }
-}
 
-@media (max-width: 768px) {
+  .sketchfab-embed-wrapper iframe {
+    height: 250px;
+  }
+
+  /* MOBILE TRAINING SECTION */
   #train {
-    min-height: 100svh;          /*force full viewport height */
-    display: flex;               /*enable Flexbox */
-    flex-direction: column;      /*stack content vertically */
-    justify-content: center;     /*center content vertically */
-    align-items: center;         /*center content horizontally */
-    padding: 60px 20px;          /*adjust padding (top space for navbar) */
-    margin: 0;                   /*reset any negative margins */
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    margin: 0;
   }
 
   .training-video-container {
@@ -100,7 +249,6 @@
     margin: 20px 0;
   }
 
-  /*ensure text is readable and compact */
   #train h1 {
     font-size: clamp(24px, 6vw, 36px);
     margin-bottom: 10px;
@@ -119,36 +267,17 @@
   }
 }
 
-/* ----------------
-   NAVBAR SPACING
-------------------*/
-@media (max-width: 768px) {
-  nav {
-    padding: 8px 15px; 
-  }
-
-  nav .logo {
-    width: 90px; 
-  }
-
-  nav ul {
-    gap: 12px; 
-  }
-
-  nav ul li a {
-    font-size: 13px;
-  }
-}
-
 @media (max-width: 700px) {
+  /* MENU */
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
+  /* JOBS */
   .jobs-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
@@ -168,42 +297,38 @@
   .job-card .description,
   .job-card ul,
   .job-card div {
-    font-size: 12px; 
+    font-size: 12px;
   }
 
   .job-card .cta {
-    padding: 8px 12px; 
+    padding: 8px 12px;
     font-size: 12px;
-    width: 100%; 
+    width: 100%;
     margin-bottom: 5px;
   }
 
   .job-actions {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 5px;
   }
 
+  /* GENERAL/NAV/HERO */
   .content h1 {
     letter-spacing: 6px;
   }
-
   .homage {
     grid-template-columns: 1fr;
   }
-
   #train {
     margin-top: -80px;
     padding-top: 100px;
   }
-
   .gus-quote.scroll-frame {
     margin-bottom: 66px;
   }
-
   nav ul li a .full-text {
     display: none;
   }
-
   nav ul li a .short-text {
     display: inline;
   }
@@ -225,15 +350,25 @@
   }
 
   nav .logo {
-    width: 60px; 
+    width: 60px;
   }
 
   nav ul {
-    gap: 8px; 
+    width: 220px;
+    gap: 20px;
   }
 
   nav ul li a {
-    font-size: 12px; 
+    font-size: 15px;
+  }
+
+  .hamburger {
+    width: 28px;
+    height: 22px;
+  }
+
+  .hamburger span {
+    height: 2.5px;
   }
 }
 
@@ -259,6 +394,6 @@
     background: none;
   }
   .section {
-    background: white !important;
+    background: var(--lph-cream) !important;
   }
 }

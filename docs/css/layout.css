@@ -11,9 +11,10 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 10000;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.03));
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4); 
+  backdrop-filter: blur(8px);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.06));
+   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089); 
 }
 
 nav .logo {
@@ -44,19 +45,24 @@ nav ul li a .short-text {
   display: none;
 }
 
+
 /* --------
    FOOTER
 ---------- */
 footer {
   text-align: center;
-  margin: 40px auto; 
+  margin: 40px auto; /*centers it*/
   padding: 30px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
+  background: rgba(255, 255,255, 0.027);
+  backdrop-filter: blur(8px); 
+  border-top: 1px solid rgba(255, 255, 255, 0.4); 
+  border-left: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089); 
   color: #fff;
   position: relative;
-  border-radius: 12px;
-  width: 100%;          
-  max-width: 1200px;    
+  border-radius: 32px;
+  width: 100%;          /*takes up 90% of screen on mobile */
+  max-width: 1200px;    /*stops growing after 1200px on desktop */
   display: flex;
   flex-direction: column;
   justify-content: center;
