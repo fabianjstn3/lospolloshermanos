@@ -39,7 +39,7 @@
   <img src="images/lph.png" alt="Logo" class="logo">
   </a>
   
-  <!-- Hamburger button -->
+  <!-- hamburger -->
   <button class="hamburger" aria-label="Toggle menu">
     <span></span>
     <span></span>
@@ -56,12 +56,12 @@
     <li><a href="#stores">Locations</a></li>
   </ul>
   
-  <!-- Overlay backdrop -->
+  <!-- overlay backdrop -->
   <div class="nav-overlay"></div>
 </nav>
 
 
-  <!-- HERO SECTION -->
+  <!-- hero -->
   <div class="hero" id="hero">  
     <div class="content">
       <h1>Los Pollos <br> Hermanos</h1>
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <!-- RESTAURANT MENU SECTION -->
+  <!-- menu -->
   <section id="menu" class="section">
     <h1>Menu</h1>
     <p>Here are Gustavo Fring's picks</p>
@@ -91,7 +91,7 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION (HOMAGE, CULTURE & VALUES) -->
+  <!-- about section -->
   <section id="bio" class="section">
     <h1>Welcome!</h1>
     <p>Welcome to Los Pollos Hermanos — where family, flavor, and flawless service come together.<br> 
@@ -122,7 +122,7 @@
 
 </div> </div></section>
 
-  <!-- TRAINING SECTION -->
+  <!-- training -->
   <section id="train" class="section">
   <h1>Train with Us</h1>
 
@@ -148,7 +148,7 @@
   </a>
 </section>
 
-  <!-- JOB LISTINGS SECTION -->
+  <!-- job listings -->
   <section id="job" class="section">
     <h1>Be With Gus</h1>
     <p>Join our team — roles below are inspired by the show's operations. Click Apply to submit. (Front-end only)</p>
@@ -191,8 +191,8 @@
 
   </div>
     </section>
-  <!-- MAP SECTION -->
 
+  <!-- map section -->
   <section id="stores" class="section">
   <h1>Our Locations</h1>
   <p>Serving excellence across the Southwest.</p>
@@ -251,6 +251,18 @@
       </form>
     </div>
   </div>
+
+  <div id="confirm-overlay" class="overlay-hidden">
+    <div class="status-box">
+      <h3 id="confirm-title">Confirm Submission</h3>
+      <p id="confirm-message">Are you sure you want to submit your application/inquiry?</p>
+      <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+        <button id="confirm-cancel" class="cta secondary">Cancel</button>
+        <button id="confirm-proceed" class="cta">Proceed</button>
+      </div>
+    </div>
+  </div>
+  
 </section>
 
 <script src="script.js"></script>
