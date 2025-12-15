@@ -10,6 +10,7 @@ This project demonstrates **modern DOM manipulation**, **responsive CSS design**
 
 * **Responsive Design:** Fully adaptive layout for Desktop, Tablet, and Mobile.
 * **Menu Lightbox:** Custom JavaScript image viewer for menu items.
+* **Shop Locator:** Shop locator through maps using Leaflet library utilizing Esri ArcGIS.
 * **Dynamic Job Board:**
 
   * Job listings rendered dynamically via JavaScript objects.
@@ -23,25 +24,43 @@ This project demonstrates **modern DOM manipulation**, **responsive CSS design**
 
 ---
 
+## 🚀 Live Demo
+
+[Los Pollos Hermanos GitHub Pages Deployment](https://fabianjstn3.github.io/lospolloshermanos)
+
+---
+
 ## 🛠️ Tech Stack
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square\&logo=html5\&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square\&logo=css3\&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square\&logo=javascript\&logoColor=black)
 ![EmailJS](https://img.shields.io/badge/EmailJS-FF5A5F?style=flat-square\&logo=emailjs\&logoColor=white)
+![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat-square&logo=leaflet&logoColor=white)
 
 ---
 
 ## 📂 Project Structure
 
 ```
-/
-├── index.html        # Main HTML structure
-├── styles.css        # Global styles, media queries, and overlay CSS
-├── script.js         # Logic for Lightbox, Jobs, and EmailJS
-├── README.md         # Project documentation
-├── images/           # Folder containing project assets
-└── fonts/            # Custom fonts (optional)
+/docs
+├── index.html          # Main HTML structure
+├── css/
+│   ├── base.css        # Base/global styles
+│   ├── bio.css         # Styles for the Bio/Homage section
+│   ├── contact.css     # Styles for the Contact section (Form, 3D Model)
+│   ├── hero.css        # Styles for the Hero banner
+│   ├── jobs.css        # Styles for the Job Listings section
+│   ├── layout.css      # Core grid/flex layout styles
+│   ├── maps.css        # Styles for the Map/Locations section
+│   ├── menu.css        # Styles for the Menu gallery/lightbox
+│   ├── modal.css       # Styles for the Application and Status Modals
+│   ├── responsive.css  # Media queries and responsiveness
+│   └── training.css    # Styles for the Training video section
+├── script.js           # Logic for Lightbox, Jobs, and EmailJS
+├── README.md           # Project documentation
+├── images/             # Folder containing project assets
+└── fonts/              # Custom fonts (optional)
 ```
 
 ---
@@ -95,4 +114,4 @@ This project is a **fan creation for educational and portfolio purposes only**.
 *"Los Pollos Hermanos," "Breaking Bad,"* and related characters are trademarks of Sony Pictures Television and AMC.
 This site is **not affiliated** with the official copyright holders.
 
-Developed with 🐔 and 🧂.
+Developed with 🐔 and 🧂
