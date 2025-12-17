@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Los Pollos Hermanos - The finest ingredients are brought together with love and care, then slow cooked to perfection.">
   <title>Los Pollos Hermanos</title>
   
   <link rel="icon" type="image/png" href="images/losp.png">
+  
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/bio.css">
   <link rel="stylesheet" href="css/contact.css">
@@ -19,12 +21,9 @@
   <link rel="stylesheet" href="css/maps.css">
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
 </head>
-  <body>
+
+<body>
   <div id="status-overlay" class="overlay-hidden">
     <div class="status-box">
       <div class="loader" id="overlay-loader"></div>
@@ -34,34 +33,30 @@
     </div>
   </div>
   
- <nav>
-  <a href="#hero">
-  <img src="images/lph.png" alt="Logo" class="logo">
-  </a>
-  
-  <!-- hamburger -->
-  <button class="hamburger" aria-label="Toggle menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  
-  <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#bio">Bio</a></li>
-    <li><a href="#train">Training</a></li>
-    <li><a href="#job">Jobs</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#stores">Locations</a></li>
-  </ul>
-  
-  <!-- overlay backdrop -->
-  <div class="nav-overlay"></div>
-</nav>
+  <nav>
+    <a href="#hero">
+      <img src="images/lph.png" alt="Los Pollos Hermanos Logo" class="logo" width="160" height="auto">
+    </a>
+    
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#train">Training</a></li>
+      <li><a href="#job">Jobs</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#stores">Locations</a></li>
+    </ul>
+    
+    <div class="nav-overlay"></div>
+  </nav>
 
-
-  <!-- hero -->
   <div class="hero" id="hero">  
     <div class="content">
       <h1>Los Pollos <br> Hermanos</h1>
@@ -69,202 +64,154 @@
     </div>
   </div>
 
-  <!-- menu -->
   <section id="menu" class="section">
     <h1>Menu</h1>
     <p>Here are Gustavo Fring's picks</p>
 
     <div class="menu-grid">
-      <!-- keep original image references but wrapped to show metadata -->
-      <div class="menu-item-card"><img src="images/polloloco.png" alt="work1"><span class="meta">Pollos Burritos</span></div>
-      <div class="menu-item-card"><img src="images/polloloco1.jpg" alt="work2"><span class="meta">The Full Measure</span></div>
-      <div class="menu-item-card"><img src="images/pollolocoo.jpg" alt="work3"><span class="meta">Pollo Loco</span></div>
-      <div class="menu-item-card"><img src="images/spicecurls.jpg" alt="work4"><span class="meta">Spice Curls</span></div>
-      <div class="menu-item-card"><img src="images/fam.jpeg" alt="work5"><span class="meta">Famiglia</span></div>
-      <div class="menu-item-card"><img src="images/bev.jpeg" alt="work6"><span class="meta">Bebida</span></div>
-      <div class="menu-item-card"><img src="images/pollotorta.jpg" alt="work7"><span class="meta">Pollo Torta</span></div>
-      <div class="menu-item-card"><img src="images/tenders.jpg" alt="work8"><span class="meta">Pollos Tenders</span></div>
-      <div class="menu-item-card"><img src="images/sides.jpg" alt="work9"><span class="meta">Slaw Goodman</span></div>
-      <div class="menu-item-card"><img src="images/wings.jpg" alt="work10"><span class="meta">Wingicita</span></div>
-      <div class="menu-item-card"><img src="images/elheisenberg.avif" alt="work11"><span class="meta">El Heisenberg</span></div>
-      <div class="menu-item-card"><img src="images/bombshell.jpg" alt="work12"><span class="meta">Bombshell</span></div>
+      <div class="menu-item-card"><img src="images/polloloco.webp" alt="Pollos Burritos" loading="lazy"><span class="meta">Pollos Burritos</span></div>
+      <div class="menu-item-card"><img src="images/polloloco1.webp" alt="The Full Measure" loading="lazy"><span class="meta">The Full Measure</span></div>
+      <div class="menu-item-card"><img src="images/pollolocoo.webp" alt="Pollo Loco" loading="lazy"><span class="meta">Pollo Loco</span></div>
+      <div class="menu-item-card"><img src="images/spicecurls.webp" alt="Spice Curls" loading="lazy"><span class="meta">Spice Curls</span></div>
+      <div class="menu-item-card"><img src="images/fam.webp" alt="Famiglia" loading="lazy"><span class="meta">Famiglia</span></div>
+      <div class="menu-item-card"><img src="images/bev.webp" alt="Bebida" loading="lazy"><span class="meta">Bebida</span></div>
+      <div class="menu-item-card"><img src="images/pollotorta.webp" alt="Pollo Torta" loading="lazy"><span class="meta">Pollo Torta</span></div>
+      <div class="menu-item-card"><img src="images/tenders.webp" alt="Pollos Tenders" loading="lazy"><span class="meta">Pollos Tenders</span></div>
+      <div class="menu-item-card"><img src="images/sides.webp" alt="Slaw Goodman" loading="lazy"><span class="meta">Slaw Goodman</span></div>
+      <div class="menu-item-card"><img src="images/wings.webp" alt="Wingicita" loading="lazy"><span class="meta">Wingicita</span></div>
+      <div class="menu-item-card"><img src="images/elheisenberg.webp" alt="El Heisenberg" loading="lazy"><span class="meta">El Heisenberg</span></div>
+      <div class="menu-item-card"><img src="images/bombshell.webp" alt="Bombshell" loading="lazy"><span class="meta">Bombshell</span></div>
     </div>
   </section>
 
-  <!-- about section -->
   <section id="bio" class="section">
     <h1>Welcome!</h1>
     <p>Welcome to Los Pollos Hermanos — where family, flavor, and flawless service come together.<br> 
-    Our chicken is prepared with the utmost care, seasoned to perfection, and served with a smile that’s as warm as our kitchen. <br> 
-    Whether you’re here for a quick meal or a moment of comfort, you’re part of the family. <br> 
-    Taste the tradition. Experience the excellence. <br> Only at Los Pollos Hermanos. </p>
+    Our chicken is prepared with the utmost care, seasoned to perfection, and served with a smile that’s as warm as our kitchen.</p>
 
     <div class="homage">
       <div class="bio-image">
-     <img src="images/gusfring.png" alt="Gus Fring" class="gus-floating">
-    </div>
+        <img src="images/gusfring.png" alt="Gus Fring" class="gus-floating" loading="lazy">
+      </div>
 
       <div class="gus-quote scroll-frame" role="region" aria-label="Gus Fring quote">
-  <div class="scroll-quote">
-    "I am the calm in the storm, and I respect discipline — in my restaurants, my people, and my work. 
-    We do things the right way here."
-  </div>
-  <div class="quote-author">— Gustavo 'Gus' Fring</div>
+        <div class="scroll-quote">
+          "I am the calm in the storm, and I respect discipline — in my restaurants, my people, and my work. 
+          We do things the right way here."
+        </div>
+        <div class="quote-author">— Gustavo 'Gus' Fring</div>
 
-  <div class="homage-note">
-    <h3>Homage: Philosophy & Values</h3>
-    <p>
-      Los Pollos Hermanos honors service, discipline, and community.  
-      This page is a fictional proposal inspired by the series — it celebrates how attention to process 
-      and excellence create trust with customers.
-    </p>
-  </div>
+        <div class="homage-note">
+          <h3>Homage: Philosophy & Values</h3>
+          <p>
+            Los Pollos Hermanos honors service, discipline, and community.
+            This page is a fictional proposal inspired by the series — it celebrates how attention to process 
+            and excellence create trust with customers.
+          </p>
+        </div>
+      </div> 
+    </div>
+  </section>
 
-</div> </div></section>
-
-  <!-- training -->
   <section id="train" class="section">
-  <h1>Train with Us</h1>
+    <h1>Train with Us</h1>
+    <div class="training-video-container">
+      <iframe src="https://www.youtube.com/embed/B9RgougnhiE" title="Los Pollos Hermanos Training Video" frameborder="0" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="training-desc">Learn the Los Pollos Hermanos way.</p>
+    <a href="https://www.youtube.com/watch?v=B9RgougnhiE&list=PL4XYugONL7lZovnsdYCwehreahGVRkrfc&index=10" target="_blank" class="playlist-btn">View Full Training Playlist</a>
+  </section>
 
-  <div class="training-video-container">
-    <iframe
-      src="https://www.youtube.com/embed/B9RgougnhiE"
-      title="Los Pollos Hermanos Training Video"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
-  </div>
-
-  <p class="training-desc">
-    Learn the Los Pollos Hermanos way — where excellence, precision, and hospitality come together.
-  </p>
-
-  <a
-    href="https://www.youtube.com/watch?v=B9RgougnhiE&list=PL4XYugONL7lZovnsdYCwehreahGVRkrfc&index=10"
-    target="_blank"
-    class="playlist-btn"
-  >
-    View Full Training Playlist
-  </a>
-</section>
-
-  <!-- job listings -->
   <section id="job" class="section">
     <h1>Be With Gus</h1>
-    <p>Join our team — roles below are inspired by the show's operations. Click Apply to submit. (Front-end only)</p>
+    <p>Join our team — roles below are inspired by the show's operations.</p>
+    <div class="jobs-grid" id="jobs-grid"></div>
+  </section>
 
-    <div class="jobs-grid" id="jobs-grid">
-      
-    </div>
-</section>
+  <section id="contact" class="section">
+    <h1>Contact Us</h1>
+    <p1>Fill up the form for inquiries. Explore our location.</p1>
 
-    <section id="contact" class="section">
-  <h1>Contact Us</h1>
-  <p1>Fill up the form for inquiries. Explore our location.</p1>
-
-  <div class="contact-container">
-    
-    <div class="contact-card">
-      <h3>Send an Inquiry</h3>
-      <form id="contact-form">
-        <label for="con-name">Name</label>
-        <input type="text" id="con-name" required placeholder="Your Name">
-        
-        <label for="con-email">Email</label>
-        <input type="email" id="con-email" required placeholder="email@address.com">
-        
-        <label for="con-message">Message</label>
-        <textarea id="con-message" rows="5" required placeholder="How can we help you?"></textarea>
-        
-        <button type="submit" class="cta" style="margin-top: 15px; width: 100%;">Send Message</button>
-      </form>
-    </div>
-
-    <div class="model-wrapper">
-      <div class="sketchfab-embed-wrapper"> 
-        <iframe title="Los Pollos Hermanos" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1723afb8bc6a4c22a9c548f8694b459b/embed"> </iframe> 
-        <p class="model-credits"> 
-          <a href="https://sketchfab.com/3d-models/los-pollos-hermanos-1723afb8bc6a4c22a9c548f8694b459b?utm_medium=embed&utm_campaign=share-popup&utm_content=1723afb8bc6a4c22a9c548f8694b459b" target="_blank" rel="nofollow"> Los Pollos Hermanos </a> by <a href="https://sketchfab.com/I3D99?utm_medium=embed&utm_campaign=share-popup&utm_content=1723afb8bc6a4c22a9c548f8694b459b" target="_blank" rel="nofollow"> I3D </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=1723afb8bc6a4c22a9c548f8694b459b" target="_blank" rel="nofollow">Sketchfab</a>
-        </p>
+    <div class="contact-container">
+      <div class="contact-card">
+        <h3>Send an Inquiry</h3>
+        <form id="contact-form">
+          <label for="con-name">Name</label>
+          <input type="text" id="con-name" required placeholder="Your Name">
+          <label for="con-email">Email</label>
+          <input type="email" id="con-email" required placeholder="email@address.com">
+          <label for="con-message">Message</label>
+          <textarea id="con-message" rows="5" required placeholder="How can we help you?"></textarea>
+          <button type="submit" class="cta" style="margin-top: 15px; width: 100%;">Send Message</button>
+        </form>
       </div>
-    </div>
 
-  </div>
-    </section>
-
-  <!-- map section -->
-  <section id="stores" class="section">
-  <h1>Our Locations</h1>
-  <p>Serving excellence across the Southwest.</p>
-
-  <div id="map"></div>
-
-  <div class="store-list">
-    <button class="lph-btn" onclick="focusStore(35.0844, -106.6504)">
-      Albuquerque, NM
-    </button>
-    <button class="lph-btn" onclick="focusStore(34.0522, -118.2437)">
-      Los Angeles, CA
-    </button>
-  </div>
-
-
-  <footer>
-    <div>
-      <div class="social-icons">
-  <a href="https://www.facebook.com/eatlospolloshermanos/" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-      <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-      <path d="M576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 440 146.7 540.8 258.2 568.5L258.2 398.2L205.4 398.2L205.4 320L258.2 320L258.2 286.3C258.2 199.2 297.6 158.8 383.2 158.8C399.4 158.8 427.4 162 438.9 165.2L438.9 236C432.9 235.4 422.4 235 409.3 235C367.3 235 351.1 250.9 351.1 292.2L351.1 320L434.7 320L420.3 398.2L351 398.2L351 574.1C477.8 558.8 576 450.9 576 320z"/>
-    </svg>
-  </a> 
-  <a href="https://www.instagram.com/eatlospolloshermanos/" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-      <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-      <path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z"/>
-    </svg>
-  </a>
-</div>
-    </div>
-  </footer>
-
-  <!-- lightbox for menu images -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
-    <span class="close-btn" id="lightbox-close">&times;</span>
-    <img src="" alt="Preview" id="lightbox-img">
-  </div>
-
-  <div class="modal" id="apply-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="panel" role="document">
-      <h3 id="modal-job-title">Apply</h3>
-      <form id="apply-form">
-        <label for="app-name">Full name</label>
-        <input id="app-name" required>
-        <label for="app-email">Email</label>
-        <input id="app-email" type="email" required>
-        <label for="app-cv">Short pitch (or paste link to CV)</label>
-        <textarea id="app-cv" rows="4" required></textarea>
-        <div style="display:flex; gap:12px; margin-top:12px; justify-content:flex-end;">
-          <button type="button" id="apply-cancel">Cancel</button>
-          <button type="submit" id="apply-submit">Send Application</button>
+      <div class="model-wrapper">
+        <div class="sketchfab-embed-wrapper"> 
+          <iframe title="Los Pollos Hermanos" loading="lazy" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1723afb8bc6a4c22a9c548f8694b459b/embed"> </iframe> 
+          <p class="model-credits"> 
+            <a href="https://sketchfab.com/3d-models/los-pollos-hermanos-1723afb8bc6a4c22a9c548f8694b459b" target="_blank" rel="nofollow">Los Pollos Hermanos</a>
+          </p>
         </div>
-      </form>
-    </div>
-  </div>
-
-  <div id="confirm-overlay" class="overlay-hidden">
-    <div class="status-box">
-      <h3 id="confirm-title">Confirm Submission</h3>
-      <p id="confirm-message">Are you sure you want to submit your application/inquiry?</p>
-      <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
-        <button id="confirm-cancel" class="cta secondary">Cancel</button>
-        <button id="confirm-proceed" class="cta">Proceed</button>
       </div>
     </div>
-  </div>
-  
-</section>
+  </section>
 
-<script src="script.js"></script>
+  <section id="stores" class="section">
+    <h1>Our Locations</h1>
+    <p>Serving excellence across the Southwest.</p>
+    <div id="map"></div>
+    <div class="store-list">
+      <button class="lph-btn" onclick="focusStore(35.0844, -106.6504)">Albuquerque, NM</button>
+      <button class="lph-btn" onclick="focusStore(34.0522, -118.2437)">Los Angeles, CA</button>
+    </div>
+
+    <footer>
+      <div>
+        <div class="social-icons">
+          <a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 440 146.7 540.8 258.2 568.5L258.2 398.2L205.4 398.2L205.4 320L258.2 320L258.2 286.3C258.2 199.2 297.6 158.8 383.2 158.8C399.4 158.8 427.4 162 438.9 165.2L438.9 236C432.9 235.4 422.4 235 409.3 235C367.3 235 351.1 250.9 351.1 292.2L351.1 320L434.7 320L420.3 398.2L351 398.2L351 574.1C477.8 558.8 576 450.9 576 320z"/></svg></a> 
+           <a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z"/></svg></a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+      <span class="close-btn" id="lightbox-close">&times;</span>
+      <img src="" alt="Preview" id="lightbox-img">
+    </div>
+
+    <div class="modal" id="apply-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="panel" role="document">
+        <h3 id="modal-job-title">Apply</h3>
+        <form id="apply-form">
+          <label for="app-name">Full name</label>
+          <input id="app-name" required>
+          <label for="app-email">Email</label>
+          <input id="app-email" type="email" required>
+          <label for="app-cv">Short pitch (or paste link to CV)</label>
+          <textarea id="app-cv" rows="4" required></textarea>
+          <div style="display:flex; gap:12px; margin-top:12px; justify-content:flex-end;">
+            <button type="button" id="apply-cancel">Cancel</button>
+            <button type="submit" id="apply-submit">Send Application</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="confirm-overlay" class="overlay-hidden">
+      <div class="status-box">
+        <h3 id="confirm-title">Confirm Submission</h3>
+        <p id="confirm-message">Are you sure you want to submit your application/inquiry?</p>
+        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+          <button id="confirm-cancel" class="cta secondary">Cancel</button>
+          <button id="confirm-proceed" class="cta">Proceed</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
