@@ -44,23 +44,13 @@ This project demonstrates **modern DOM manipulation**, **responsive CSS design**
 
 ```
 /docs
-├── index.html          # Main HTML structure
 ├── css/
-│   ├── base.css        # Base/global styles
-│   ├── bio.css         # Styles for the Bio/Homage section
-│   ├── contact.css     # Styles for the Contact section (Form, 3D Model)
-│   ├── hero.css        # Styles for the Hero banner
-│   ├── jobs.css        # Styles for the Job Listings section
-│   ├── layout.css      # Core grid/flex layout styles
-│   ├── maps.css        # Styles for the Map/Locations section
-│   ├── menu.css        # Styles for the Menu gallery/lightbox
-│   ├── modal.css       # Styles for the Application and Status Modals
-│   ├── responsive.css  # Media queries and responsiveness
-│   └── training.css    # Styles for the Training video section
-├── script.js           # Logic for Lightbox, Jobs, and EmailJS
-├── README.md           # Project documentation
+│   ├── styles.css      # Whole page styling and media queries
+├── fonts/              # Custom fonts (optional)
 ├── images/             # Folder containing project assets
-└── fonts/              # Custom fonts (optional)
+├── index.html          # Main HTML structure
+├── script.js           # Logic for Lightbox, Jobs, and EmailJS
+└── README.md           # Project documentation
 ```
 
 ---
